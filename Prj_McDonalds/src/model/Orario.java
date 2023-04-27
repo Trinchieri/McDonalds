@@ -13,4 +13,8 @@ class Orario {
         this.minuti = minuti;
     }
     
+    @Override
+    public String toString () {
+        return this.ora + ":" + this.minuti;
+    }
 }
