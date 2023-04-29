@@ -7,18 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import model.HappyMeal;
 import model.McCafe;
+import model.McMenu;
 import model.Ordine;
 
-public class GestoreOrdine {
+public class GestoreOrdini {
     private ArrayList<Ordine> ordini = new ArrayList<>();
     
-    void addOrdine (Ordine ordine) throws Exception {
-        if (ordine == null) throw new Exception ("Devi inserire un ordine");
-        
-        ordini.add(ordine);
-    }
-    
-    /*public void inputOrdini () throws FileNotFoundException, IOException {
+    public GestoreOrdini () throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader (new FileReader("ordini.csv"));
         String line;
         
@@ -27,22 +22,22 @@ public class GestoreOrdine {
             
             switch (info[0]) {
                 case "McCafe": {
-                    ordini.add(new McCafe (info[1], info[2]));
+                    ordini.add(new McCafe(info[1], info[2]));
                     break;
                 }
                 
                 case "HappyMeal": {
-                    ordini.add(new HappyMeal (info[1], info[2], info[3], info[4]));
+                    ordini.add(new HappyMeal(info[1], info[2], info[3], info[4]));
                     break;
                 }
                 
                 case "McMenu": {
-                    ordini.add(new McMenu (info[1], info[2], info[3]);
+                    ordini.add(new McMenu(info[1], info[2], info[3], info[4]));
                     break;
                 }        
             }
         }
-    }*/
+    }
 
     public ArrayList<Ordine> getOrdini() {
         return ordini;

@@ -1,16 +1,54 @@
 package model;
 
 public abstract class Panino {
-    private String burger;
-    private boolean pane;
-    private int formaggio;
+    private String nome, burger, formaggio, salsa, insalata, cipolla, cetriolo, bacon, pane;
+    
+    public Panino(String nome, String burger, String formaggio, String salsa, String insalata, String cipolla, String cetriolo, String bacon, String pane) {
+        this.nome = nome;
+        this.burger = burger;
+        this.formaggio = formaggio;
+        this.salsa = salsa;
+        this.insalata = insalata;
+        this.cipolla = cipolla;
+        this.cetriolo = cetriolo;
+        this.bacon = bacon;
+        this.pane = pane;
+    }
+    
+    public String getNome () {
+       return this.nome;
+    }
+    
+    @Override
+    public String toString () {
+        String x = this.nome + " [ ";
+        
+        if (!this.pane.equals("")) x += this.pane;
+        
+        if (!this.burger.equals("")) x += ", " + this.burger;
+        
+        if (!this.formaggio.equals("")) x += ", " + this.formaggio;
+        
+        if (!this.salsa.equals("")) x += ", " + this.salsa;
+        
+        if (!this.insalata.equals("")) x += ", " + this.insalata;
+        
+        if (!this.cipolla.equals("")) x += ", " + this.cipolla;
+        
+        if (!this.cetriolo.equals("")) x += ", " + this.cetriolo;
+        
+        if (!this.bacon.equals("")) x += ", " + this.bacon;
+        
+        return x + " ]";
+    }
+    /*private int formaggio;
     private Salsa salsa;
     private boolean insalata;
     private boolean pomodori;
     private boolean cipolla;
     private int bacon;
 
-    public Panino(String burger, boolean pane, int formaggio, Salsa salsa, boolean insalata, boolean pomodori, boolean cipolla, int bacon) throws Exception {
+    public Panino(String nome, String pane, String burger, int formaggio, Salsa salsa, boolean insalata, boolean pomodori, boolean cipolla, int bacon) throws Exception {
         if(burger.isEmpty()) throw new Exception("Inserire un burger valido");
         if(formaggio<0 || formaggio>5) throw new Exception("Inserire una quantita' valida di formaggio");
         if(bacon<0 || bacon>5) throw new Exception("Inserire una quantita' valida di bacon");
@@ -57,5 +95,7 @@ public abstract class Panino {
 
     public int getBacon() {
         return bacon;
-    }        
+    }*/      
+
+    
 }
