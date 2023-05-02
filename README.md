@@ -11,3 +11,17 @@ Vogliamo progettare il funzionamento generale delle ordinazioni del McDonald's. 
 * Visualizzazione del prezzo finale (scontrino)
 
 ## Interfaccia grafica
+
+
+## Organizzazione file
+### Panini
+
+Casella A: nome
+Casella B: tipo di carne (burger)
+Casella C: formaggio
+Casella D: salsa
+Casella E: insalata
+Casella F: cipolla
+Casella G: cetriolo
+Casella H: bacon
+Casella I: pane
