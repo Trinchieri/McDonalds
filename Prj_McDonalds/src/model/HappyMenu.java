@@ -1,16 +1,19 @@
 package model;
 
-public abstract class HappyMenu extends Ordine{
-    protected String panino, bevanda, dessert;
+import controller.GestorePanini;
 
-    public HappyMenu(String panino, String bevanda, String dessert) {
-        this.panino = panino;
+public abstract class HappyMenu extends Ordine{
+    protected String bevanda, dessert;
+    protected Panino panino;
+
+    public HappyMenu(String nomePanino, String bevanda, String dessert) {
+        panino = GestorePanini.getPanino(nomePanino);
         this.bevanda = bevanda;
         this.dessert = dessert;
     }
 
-    public String getPanino() {
-        return panino;
+    public String getNomePanino() {
+        return panino.getNome();
     }
 
     public String getBevanda() {

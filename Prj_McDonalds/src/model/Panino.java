@@ -1,9 +1,10 @@
 package model;
 
 public abstract class Panino {
-    private String nome, burger, formaggio, salsa, insalata, cipolla, cetriolo, bacon, pane;
+    private String nome, burger, salsa, pane;
+    private int formaggio,  insalata, cipolla, cetriolo, bacon;
     
-    public Panino(String nome, String burger, String formaggio, String salsa, String insalata, String cipolla, String cetriolo, String bacon, String pane) {
+    public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane) {
         this.nome = nome;
         this.burger = burger;
         this.formaggio = formaggio;
@@ -27,17 +28,17 @@ public abstract class Panino {
         
         if (!this.burger.equals("")) x += ", " + this.burger;
         
-        if (!this.formaggio.equals("")) x += ", " + this.formaggio;
+        if (this.formaggio != 0) x += ", " + this.formaggio;
         
         if (!this.salsa.equals("")) x += ", " + this.salsa;
         
-        if (!this.insalata.equals("")) x += ", " + this.insalata;
+        if (this.insalata != 0) x += ", " + this.insalata;
         
-        if (!this.cipolla.equals("")) x += ", " + this.cipolla;
+        if (this.cipolla != 0) x += ", " + this.cipolla;
         
-        if (!this.cetriolo.equals("")) x += ", " + this.cetriolo;
+        if (this.cetriolo != 0) x += ", " + this.cetriolo;
         
-        if (!this.bacon.equals("")) x += ", " + this.bacon;
+        if (this.bacon != 0) x += ", " + this.bacon;
         
         return x + " ]";
     }
