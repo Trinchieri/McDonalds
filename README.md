@@ -14,14 +14,13 @@ Vogliamo progettare il funzionamento generale delle ordinazioni del McDonald's. 
 
 
 ## Organizzazione file
-### Panini
-
-Casella A: nome
-Casella B: tipo di carne (burger)
-Casella C: formaggio
-Casella D: salsa
-Casella E: insalata
-Casella F: cipolla
-Casella G: cetriolo
-Casella H: bacon
-Casella I: pane
+### panini.csv
+1. nome
+2. tipo di carne (burger)
+3. formaggio
+4. salsa
+5. insalata
+6. cipolla
+7. cetriolo
+8. bacon
+9. pane
