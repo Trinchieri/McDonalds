@@ -13,8 +13,17 @@ Vogliamo progettare il funzionamento generale delle ordinazioni del McDonald's. 
 ## Interfaccia grafica
 
 
-## Organizzazione file
-### panini.csv
+## Implementazione del progetto
+### Classi
+* GestoreOrdini: finito
+* GestorePanini: finito
+* HappyMeal: finito
+* HappyMenu: finito
+* McMenu: aggiungere tipo di patatine
+
+
+### Organizzazione file
+#### panini.csv
 1. nome
 2. tipo di carne (burger)
 3. formaggio
