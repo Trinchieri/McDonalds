@@ -19,7 +19,13 @@ Vogliamo progettare il funzionamento generale delle ordinazioni del McDonald's. 
 * GestorePanini: finito
 * HappyMeal: finito
 * HappyMenu: finito
-* McMenu: aggiungere tipo di patatine
+* McMenu: finito
+* McCafe: finito
+* Orario: finito
+* Ordine: finito
+
+
+AGGIUNGERE PREZZI
 
 
 ### Organizzazione file
