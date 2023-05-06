@@ -3,7 +3,8 @@ package model;
 public class McCafe extends Ordine{
     private String bevanda, pasta;
 
-    public McCafe(String bevanda, String pasta) {
+    public McCafe(boolean asporto, String bevanda, String pasta) {
+        super(asporto);
         this.bevanda = bevanda;
         this.pasta = pasta;
     }
@@ -18,7 +19,8 @@ public class McCafe extends Ordine{
     
     @Override
     public String toString () {
-        String x = "McCafe [ ";
+        
+        String x = super.toString() + " McCafe [ ";
         
         if (!bevanda.equals("")) x += this.bevanda;
         

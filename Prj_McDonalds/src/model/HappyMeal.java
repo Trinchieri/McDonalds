@@ -4,8 +4,8 @@ public class HappyMeal extends HappyMenu{
     
     private String sorpresa;
     
-    public HappyMeal(String panino, String bevanda, String dessert, String sorpresa) {
-        super(panino, bevanda, dessert);
+    public HappyMeal(boolean asporto, String panino, String bevanda, String dessert, String sorpresa) {
+        super(asporto, panino, bevanda, dessert);
         
         this.sorpresa = sorpresa;
     }
@@ -16,9 +16,9 @@ public class HappyMeal extends HappyMenu{
     
     @Override
     public String toString () {
-        String x = "HappyMeal [ ";
+        String x = super.toString() + "HappyMeal [ ";
         
-        if (!this.panino.equals("")) x += this.panino;
+        if (!this.getNomePanino().equals("")) x += this.panino.getNome();
         
         if (!this.bevanda.equals("")) x += ", " + this.bevanda;
         

@@ -2,21 +2,26 @@ package model;
 
 public class McMenu extends HappyMenu{
     
-    private String patatine;
+    private Patata patatine;
     
-    public McMenu(String panino, String bevanda, String dessert, String patatine) {
-        super(panino, bevanda, dessert);
+    public McMenu(boolean asporto, String panino, String bevanda, String dessert, String patatine, String salsa) throws Exception {
+        super(asporto, panino, bevanda, dessert);
         
-        this.patatine = patatine;
+        if (!"classiche".equals(patatine)) {
+            this.patatine = new Patata(patatine);
+        }
+        else {
+            this.patatine = new Patata (patatine, salsa);
+        }
     }
     
     @Override
     public String toString () {
-        String x = "Menu [ ";
+        String x = super.toString() + "Menu [ ";
         
-        if (!this.panino.equals("")) x += this.panino;
+        if (!this.getNomePanino().equals("")) x += this.panino.getNome();
             
-        if (!this.patatine.equals("")) x += ", " + this.patatine;
+        if (!this.patatine.getTipo().equals("")) x += ", " + this.patatine.getTipo();
         
         if (!this.bevanda.equals("")) x += ", " + this.bevanda;
         

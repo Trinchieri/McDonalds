@@ -1,5 +1,5 @@
-McCafe,cappuccino,croissant con nutella,,
-HappyMeal,Chickenburger,coca-cola,actimel kids fragola,sorpresa
-McCafe,cioccolata calda,muffin cioccolato,,
-McMenu,Big Mac,acqua naturale,,patatine
-McCafe,caffe espresso,cheesecake alla fragola,,
+McCafe,cappuccino,croissant con nutella,true
+HappyMeal,Chickenburger,coca-cola,actimel kids fragola,sorpresa,false
+McCafe,cioccolata calda,muffin cioccolato,false
+McMenu,Big Mac,acqua naturale,,classiche,senape,true
+McCafe,caffe espresso,cheesecake alla fragola,true

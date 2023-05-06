@@ -1,4 +1,4 @@
-Big Mac,carne bovina,formaggio,salsa Big Mac,insalata,cipolla,cetriolo,,pane
-McChicken,petto di pollo,,salsa McChicken,insalata iceberg,,,,pane
-Gran Crispy McBacon,carne bovina,formaggio,salsa crispy,,,,bacon,pane
-Gran Crispy McBacon Chicken,petto di pollo,formaggio,salsa crispy,,,,bacon,pane
+Big Mac,carne bovina,1,salsa Big Mac,1,1,1,0,pane
+McChicken,petto di pollo,0,salsa McChicken,1,0,0,0,pane
+Gran Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane
+Gran Crispy McBacon Chicken,petto di pollo,1,salsa crispy,0,0,0,1,pane

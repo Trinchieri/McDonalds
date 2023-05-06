@@ -11,3 +11,25 @@ Vogliamo progettare il funzionamento generale delle ordinazioni del McDonald's. 
 * Visualizzazione del prezzo finale (scontrino)
 
 ## Interfaccia grafica
+
+
+## Implementazione del progetto
+### Classi
+* GestoreOrdini: finito
+* GestorePanini: finito
+* HappyMeal: finito
+* HappyMenu: finito
+* McMenu: aggiungere tipo di patatine
+
+
+### Organizzazione file
+#### panini.csv
+1. nome
+2. tipo di carne (burger)
+3. formaggio
+4. salsa
+5. insalata
+6. cipolla
+7. cetriolo
+8. bacon
+9. pane

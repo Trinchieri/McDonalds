@@ -2,7 +2,7 @@ package model;
 
 public abstract class Panino {
     private String nome, burger, salsa, pane;
-    private int formaggio,  insalata, cipolla, cetriolo, bacon;
+    private int formaggio, insalata, cipolla, cetriolo, bacon;
     
     public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane) {
         this.nome = nome;

@@ -6,7 +6,7 @@ import model.Panino;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, Exception {
         GestorePanini c = new GestorePanini ();
         GestoreOrdini d = new GestoreOrdini();
         

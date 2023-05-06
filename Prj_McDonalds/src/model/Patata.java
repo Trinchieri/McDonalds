@@ -3,23 +3,65 @@ package model;
 import java.util.ArrayList;
 
 public class Patata {
-    private boolean classiche,vertigo,cheddar,cheddarEBacon;
-
-    public Patata(boolean classiche,boolean vertigo, boolean cheddar, boolean cheddarEBacon) {
-        this.classiche = classiche;
-        this.vertigo = vertigo;
-        this.cheddar = cheddar;
-        this.cheddarEBacon = cheddarEBacon;
+    private String tipo;// classiche,vertigo,cheddar,cheddarEBacon;
+    private Salsa salsa = null;
+    
+    public Patata (String tipo) throws Exception {
+        tipo=tipo.toLowerCase();
+        switch(tipo){
+            case "classiche":{
+                this.tipo="Classiche";
+                break;
+            }
+            case "vertigo":{
+                this.tipo="Vertigo";
+                break;
+            }
+            case "cheddar":{
+                this.tipo="Cheddar";
+                break;
+            }
+            case "cheddarEBacon":{
+                this.tipo="Cheddar e Bacon";
+                break;
+            }
+            default:{
+                throw new Exception("Inserire delle patatine esistenti");
+            }
+        }
+    }
+    
+    public Patata (String tipo, String salsa)throws Exception {
+        tipo=tipo.toLowerCase();
+        switch(tipo){
+            case "classiche":{
+                this.tipo="Classiche";
+                this.salsa = new Salsa(salsa);
+                break;
+            }
+            case "vertigo":{
+                this.tipo="Vertigo";
+                break;
+            }
+            case "cheddar":{
+                this.tipo="Cheddar";
+                break;
+            }
+            case "cheddarEBacon":{
+                this.tipo="Cheddar e Bacon";
+                break;
+            }
+            default:{
+                throw new Exception("Inserire delle patatine esistenti");
+            }
+        }
     }
 
-    public ArrayList<String> getSalse(){
-        ArrayList<String> app = new ArrayList();
-        
-        if(this.classiche) app.add("Classiche");
-        if(this.vertigo) app.add("Vertigo");
-        if(this.cheddar) app.add("Cheddar");
-        if(this.cheddarEBacon) app.add("Cheddar&Bacon");
-        
-        return app;
+    public String getTipo() {
+        return tipo;
+    }
+
+    public ArrayList<String> getSalsa() {
+        return salsa.getSalse();
     }
 }
