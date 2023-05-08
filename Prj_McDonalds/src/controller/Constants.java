@@ -22,4 +22,14 @@ public class Constants {
         }
     };
     
+    public static final Map<String,String> SALSE = new HashMap<String,String>(){
+        {
+            put("BBQ","BBQ");
+            put("MAIONESE","Mayo");
+            put("KETCHUP","Ketchup");
+            put("AGRODOLCE","Agrodolce");
+            put("SENAPE","Senape");
+        }  
+    };
+    
 }

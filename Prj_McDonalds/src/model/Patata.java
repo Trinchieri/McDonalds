@@ -35,9 +35,9 @@ public class Patata {
         return tipo;
     }
 
-    public ArrayList<String> getSalsa() {
+   /* public ArrayList<String> getSalsa() {
         return salsa.getSalse();
-    }
+    }*/
     
     @Override
     public String toString(){
