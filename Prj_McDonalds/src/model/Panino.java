@@ -28,17 +28,17 @@ public abstract class Panino {
         
         if (!this.burger.equals("")) x += ", " + this.burger;
         
-        if (this.formaggio != 0) x += ", " + this.formaggio;
+        if (this.formaggio != 0) x += ", formaggio: " + this.formaggio;
         
         if (!this.salsa.equals("")) x += ", " + this.salsa;
         
-        if (this.insalata != 0) x += ", " + this.insalata;
+        if (this.insalata != 0) x += ", insalata: " + this.insalata;
         
-        if (this.cipolla != 0) x += ", " + this.cipolla;
+        if (this.cipolla != 0) x += ", cipolla: " + this.cipolla;
         
-        if (this.cetriolo != 0) x += ", " + this.cetriolo;
+        if (this.cetriolo != 0) x += ", cetriolo: " + this.cetriolo;
         
-        if (this.bacon != 0) x += ", " + this.bacon;
+        if (this.bacon != 0) x += ", bacon: " + this.bacon;
         
         return x + " ]";
     }
