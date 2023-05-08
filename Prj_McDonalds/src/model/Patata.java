@@ -1,58 +1,32 @@
 package model;
 
 import java.util.ArrayList;
+import static controller.Constants.PATATE;
+import java.util.Map;
 
 public class Patata {
-    private String tipo;// classiche,vertigo,cheddar,cheddarEBacon;
+    private String tipo;
     private Salsa salsa = null;
     
-    public Patata (String tipo) throws Exception {
-        tipo=tipo.toLowerCase();
-        switch(tipo){
-            case "classiche":{
-                this.tipo="Classiche";
-                break;
-            }
-            case "vertigo":{
-                this.tipo="Vertigo";
-                break;
-            }
-            case "cheddar":{
-                this.tipo="Cheddar";
-                break;
-            }
-            case "cheddarEBacon":{
-                this.tipo="Cheddar e Bacon";
-                break;
-            }
-            default:{
-                throw new Exception("Inserire delle patatine esistenti");
+    public Patata (String t) throws Exception {
+        t=t.toUpperCase();
+        
+        for(Map.Entry i: PATATE.entrySet()){
+            if(t.equals(i.getKey())){
+                this.tipo = (String) i.getValue();
             }
         }
     }
     
-    public Patata (String tipo, String salsa)throws Exception {
-        tipo=tipo.toLowerCase();
-        switch(tipo){
-            case "classiche":{
-                this.tipo="Classiche";
-                this.salsa = new Salsa(salsa);
-                break;
-            }
-            case "vertigo":{
-                this.tipo="Vertigo";
-                break;
-            }
-            case "cheddar":{
-                this.tipo="Cheddar";
-                break;
-            }
-            case "cheddarEBacon":{
-                this.tipo="Cheddar e Bacon";
-                break;
-            }
-            default:{
-                throw new Exception("Inserire delle patatine esistenti");
+    public Patata (String t, String salsa)throws Exception {
+        t=t.toUpperCase();
+       
+        for(Map.Entry i: PATATE.entrySet()){
+            if(t.equals(i.getKey())){
+                this.tipo = (String) i.getValue();
+                if(i.getKey().equals("CLASSICHE")){
+                    this.salsa = new Salsa(salsa);    
+                }
             }
         }
     }
@@ -63,5 +37,15 @@ public class Patata {
 
     public ArrayList<String> getSalsa() {
         return salsa.getSalse();
+    }
+    
+    @Override
+    public String toString(){
+        String x = "Patatine [ "+this.tipo;
+        if(this.salsa.equals(null)){
+            x += ", "+this.salsa;
+        }
+        
+        return x + " ]";
     }
 }

@@ -20,8 +20,8 @@ public class McMenu extends HappyMenu{
         String x = super.toString() + "Menu [ ";
         
         if (!this.getNomePanino().equals("")) x += this.panino.getNome();
-            
-        if (!this.patatine.getTipo().equals("")) x += ", " + this.patatine.getTipo();
+        
+        if (!this.patatine.equals(null)) x += ", " + this.patatine;
         
         if (!this.bevanda.equals("")) x += ", " + this.bevanda;
         
