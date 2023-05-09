@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import static controller.Constants.PATATE;
 import java.util.Map;
 
@@ -34,18 +33,19 @@ public class Patata {
     public String getTipo() {
         return tipo;
     }
-
-   /* public ArrayList<String> getSalsa() {
-        return salsa.getSalse();
-    }*/
+    
+    public Salsa getSalsa(){
+        return this.salsa;
+    }
     
     @Override
     public String toString(){
         String x = "Patatine [ "+this.tipo;
-        if(this.salsa.equals(null)){
+        
+        if(!this.salsa.equals(null)){
             x += ", "+this.salsa;
         }
         
-        return x + " ]";
+        return x + "]";
     }
 }

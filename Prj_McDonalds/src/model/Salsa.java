@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Salsa {
-    private final Map<String, Boolean> tipiSalse = new HashMap<String,Boolean>(){
+    private Map<String, Boolean> tipiSalse = new HashMap<String,Boolean>(){
         {
             put("BBQ",false);
             put("Mayo",false);
@@ -17,30 +17,32 @@ public class Salsa {
     
     public Salsa (String salsa) throws Exception {
         salsa=salsa.toUpperCase();
+        
         for(Map.Entry i: SALSE.entrySet()){
             if(i.getKey().equals(salsa)){
                 this.tipiSalse.replace((String) i.getValue(), true);
             }
         }
     }
-
-    /*public Salsa(boolean bbq, boolean mayo, boolean ketchup, boolean agrodolce, boolean senape) {        
-        this.bbq = bbq;
-        this.mayo = mayo;
-        this.ketchup = ketchup;
-        this.agrodolce = agrodolce;
-        this.senape = senape;
-    }
-     
+    
     public ArrayList<String> getSalse(){
-        ArrayList<String> app = new ArrayList();
+        ArrayList<String> x = new ArrayList<>();
         
-        if(this.bbq) app.add("BBQ");
-        if(this.mayo) app.add("Maionese");
-        if(this.ketchup) app.add("Ketchup");
-        if(this.agrodolce) app.add("Agrodolce");
-        if(this.senape) app.add("Senape");
+        for(Map.Entry i : this.tipiSalse.entrySet()){
+            if(i.getValue().equals(true)) x.add((String) i.getKey());
+        }
         
-        return app;
-    }*/
+        return x;
+    }
+    
+    @Override
+    public String toString(){
+        String x = "Salse: ";
+        
+        for(Map.Entry i : this.tipiSalse.entrySet()){
+            if(i.getValue().equals(true)) x += i.getKey() + ", ";
+        }
+        
+        return x;
+    }
 }
