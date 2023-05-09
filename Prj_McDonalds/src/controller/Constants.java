@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author martucciortegar
- */
 public class Constants {
     public static final Map<String, String> PATATE = new HashMap<String,String>(){
         {
@@ -30,6 +21,22 @@ public class Constants {
             put("AGRODOLCE","Agrodolce");
             put("SENAPE","Senape");
         }  
+    };
+    
+    public static final Map<String,Double> BEVANDE = new HashMap<String,Double>(){
+        {
+            put("CAPUCCINO",2.0);
+            put("CIOCCOLATA CALDA",1.5);
+            put("CAFFE ESPRESSO",2.5);
+        }
+    };
+    
+    public static final Map<String,Double> PASTE = new HashMap<String,Double>(){
+        {
+            put("CROISSANT CON LA NUTELLA",1.5);
+            put("MUFFIN CIOCCOLATO",2.0);
+            put("CHEESCAKE ALLA FRAGOLA",3.0);
+        }
     };
     
 }
