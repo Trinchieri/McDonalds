@@ -1,44 +1,46 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Panino {
-    private String nome, burger, salsa, pane;
-    private int formaggio, insalata, cipolla, cetriolo, bacon;
+    private Map<String, String> caratteristicheString = new HashMap<String,String>();
+    private Map<String, Integer> caratteristicheInt = new HashMap<String,Integer>();
     
     public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane) {
-        this.nome = nome;
-        this.burger = burger;
-        this.formaggio = formaggio;
-        this.salsa = salsa;
-        this.insalata = insalata;
-        this.cipolla = cipolla;
-        this.cetriolo = cetriolo;
-        this.bacon = bacon;
-        this.pane = pane;
+        caratteristicheString.put("NOME", nome);
+        caratteristicheString.put("BURGER", burger);
+        caratteristicheString.put("SALSA", salsa);
+        caratteristicheString.put("PANE", pane);
+        
+        caratteristicheInt.put("FORMAGGIO", formaggio);
+        caratteristicheInt.put("INSALATA", insalata);
+        caratteristicheInt.put("CIPOLLA", cipolla);
+        caratteristicheInt.put("CETRIOLO", cetriolo);
+        caratteristicheInt.put("BACON", bacon);
     }
     
     public String getNome () {
-       return this.nome;
+       return caratteristicheString.get("NOME");
     }
     
     @Override
     public String toString () {
-        String x = this.nome + " [ ";
+        String x = caratteristicheString.get("NOME") + " [ " + caratteristicheString.get("PANE");
         
-        if (!this.pane.equals("")) x += this.pane;
+        if (caratteristicheString.get("BURGER").equals("")) x += ", " + caratteristicheString.get("BURGER");
         
-        if (!this.burger.equals("")) x += ", " + this.burger;
+        if (caratteristicheInt.get("FORMAGGIO") != 0) x += ", formaggio: " + caratteristicheInt.get("FORMAGGIO");
         
-        if (this.formaggio != 0) x += ", formaggio: " + this.formaggio;
+        if (!caratteristicheString.get("SALSA").equals("")) x += ", " + caratteristicheString.get("SALSA");
         
-        if (!this.salsa.equals("")) x += ", " + this.salsa;
+        if (caratteristicheInt.get("INSALATA") != 0) x += ", insalata: " + caratteristicheInt.get("INSALATA");
         
-        if (this.insalata != 0) x += ", insalata: " + this.insalata;
+        if (caratteristicheInt.get("CIPOLLA") != 0) x += ", cipolla: " + caratteristicheInt.get("CIPOLLA");
         
-        if (this.cipolla != 0) x += ", cipolla: " + this.cipolla;
+        if (caratteristicheInt.get("CETRIOLO") != 0) x += ", cetriolo: " + caratteristicheInt.get("CETRIOLO");
         
-        if (this.cetriolo != 0) x += ", cetriolo: " + this.cetriolo;
-        
-        if (this.bacon != 0) x += ", bacon: " + this.bacon;
+        if (caratteristicheInt.get("BACON") != 0) x += ", bacon: " + caratteristicheInt.get("BACON");
         
         return x + " ]";
     }

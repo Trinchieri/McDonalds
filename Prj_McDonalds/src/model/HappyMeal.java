@@ -1,5 +1,7 @@
 package model;
 
+import controller.Constants;
+
 public class HappyMeal extends HappyMenu{
     
     private String sorpresa;
@@ -8,6 +10,8 @@ public class HappyMeal extends HappyMenu{
         super(asporto, panino, bevanda, dessert);
         
         this.sorpresa = sorpresa;
+        
+        prezzo = 5.90;
     }
 
     public String getSorpresa() {
@@ -27,10 +31,5 @@ public class HappyMeal extends HappyMenu{
         if (!this.sorpresa.equals("")) x += ", " + this.sorpresa;
         
         return x + " ]";
-    }
-
-    @Override
-    public double Prezzo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }  
 }

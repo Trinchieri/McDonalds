@@ -1,5 +1,7 @@
 package model;
 
+import controller.Constants;
+
 public class McCafe extends Ordine{
     private String bevanda, pasta;
 
@@ -7,6 +9,8 @@ public class McCafe extends Ordine{
         super(asporto);
         this.bevanda = bevanda;
         this.pasta = pasta;
+        
+        calcolaPrezzo();
     }
 
     public String getBevanda() {
@@ -29,8 +33,20 @@ public class McCafe extends Ordine{
         return x + " ]";
     }
 
-    @Override
-    public double Prezzo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void calcolaPrezzo () {
+        
+        if (!bevanda.equals("")) {
+            
+            String cercaBevanda = bevanda.toUpperCase();
+            
+            prezzo += Constants.BEVANDE.get(cercaBevanda);
+        }
+        
+        if (!pasta.equals("")) {
+            
+            String cercaPasta = pasta.toUpperCase();
+            
+            prezzo += Constants.PASTE.get(cercaPasta);
+        }
     }
 }
