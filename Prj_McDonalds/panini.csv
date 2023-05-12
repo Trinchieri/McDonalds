@@ -1,14 +1,14 @@
-Big Mac,carne bovina,1,salsa Big Mac,1,1,1,0,pane,BIGMAC
-McChicken,petto di pollo,0,salsa McChicken,1,0,0,0,pane,MCCHICKEN
-Gran Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane,GRANCRISPYMCBACON
-Gran Crispy McBacon Chicken,petto di pollo,1,salsa crispy,0,0,0,1,pane,GRANCRISPYMCBACONCHICKEN
-McToast,prosciutto cotto,1,,0,0,0,0,pane,MCTOAST
-Chickenburger,pollo impanato,0,salsa caesar,0,0,0,0,pane,CHICKENBURGER
-Hamburger,carne bovina,0,ketchup e senape,0,1,1,0,pane,HAMBURGER
-Crispy Chicken McWrap,pollo impanato,1,salsa crispy,1,0,0,0,tortilla,CRISPYCHICKENMCWRAP
-Crispy McWrap,carne bovina,1,salsa crispy,1,0,0,0,tortilla,CRISPYMCWRAP
-Double Chicken BBQ,petto di pollo,1,salsa BBQ,1,1,0,0,pane,DOUBLECHICKENBBQ
-McMuffin Bacon Egg,uovo,1,,0,0,0,1,pane,MCMUFFINBACONEGG
-Filet-O-Fish,merluzzo impanato,1,salsa tartara,0,0,0,0,pane,FILET-O-FISH
-Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane,CRISPYMCBACON
-Cheeseburger,carne bovina,1,ketchup e senape,0,1,1,0,pane,CHEESEBURGER
+Big Mac,carne bovina,1,salsa Big Mac,1,1,1,0,pane,BIGMAC,5.8
+McChicken,petto di pollo,0,salsa McChicken,1,0,0,0,pane,MCCHICKEN,6.0
+Gran Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane,GRANCRISPYMCBACON,7.10
+Gran Crispy McBacon Chicken,petto di pollo,1,salsa crispy,0,0,0,1,pane,GRANCRISPYMCBACONCHICKEN,7.10
+McToast,prosciutto cotto,1,,0,0,0,0,pane,MCTOAST,2.0
+Chickenburger,pollo impanato,0,salsa caesar,0,0,0,0,pane,CHICKENBURGER,2.0
+Hamburger,carne bovina,0,ketchup e senape,0,1,1,0,pane,HAMBURGER,1.40
+Crispy Chicken McWrap,pollo impanato,1,salsa crispy,1,0,0,0,tortilla,CRISPYCHICKENMCWRAP,6.90
+Crispy McWrap,carne bovina,1,salsa crispy,1,0,0,0,tortilla,CRISPYMCWRAP,6.90
+Double Chicken BBQ,petto di pollo,1,salsa BBQ,1,1,0,0,pane,DOUBLECHICKENBBQ,3.10
+McMuffin Bacon Egg,uovo,1,,0,0,0,1,pane,MCMUFFINBACONEGG,1.60
+Filet-O-Fish,merluzzo impanato,1,salsa tartara,0,0,0,0,pane,FILET-O-FISH,3.10
+Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane,CRISPYMCBACON,6.20
+Cheeseburger,carne bovina,1,ketchup e senape,0,1,1,0,pane,CHEESEBURGER,2.0

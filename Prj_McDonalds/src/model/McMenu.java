@@ -1,6 +1,8 @@
 package model;
 
 import controller.Constants;
+import static controller.Constants.DESSERTS;
+import java.util.Map;
 
 public class McMenu extends HappyMenu{
     
@@ -15,7 +17,18 @@ public class McMenu extends HappyMenu{
     }
     
     public void setDessert(String dessert) {
-        this.dessert = dessert;
+        dessert = dessert.toUpperCase();
+        
+        if(dessert == ""){
+            this.dessert = "";
+        }
+        else{
+            for(Map.Entry i: DESSERTS.entrySet()){
+               if(dessert.equals(i.getKey())){
+                   this.dessert = ((String) i.getKey()).toLowerCase();
+               }
+           }
+        }
     }
     
     public Patata getPatatine() {
@@ -34,7 +47,7 @@ public class McMenu extends HappyMenu{
     public String toString () {
         String x = super.toString() + "Menu [ " + this.panino.getNome() + ", " + this.patatine;
         
-        if (!this.bevanda.equals("")) x += ", " + this.bevanda;
+        if (!this.bibita.equals("")) x += ", " + this.bibita;
         
         if (!this.dessert.equals("")) x += ", " + this.dessert;
         

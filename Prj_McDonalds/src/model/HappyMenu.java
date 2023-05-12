@@ -1,9 +1,11 @@
 package model;
 
+import static controller.Constants.BIBITE;
 import controller.GestorePanini;
+import java.util.Map;
 
 public abstract class HappyMenu extends Ordine{
-    protected String bevanda, dessert;
+    protected String bibita, dessert;
     protected Panino panino;
 
     public HappyMenu(boolean asporto) {
@@ -18,12 +20,18 @@ public abstract class HappyMenu extends Ordine{
         this.panino = GestorePanini.getPanino(nomePanino);
     }
     
-    public String getBevanda() {
-        return bevanda;
+    public String getBibita() {
+        return bibita;
     }
 
-    public void setBevanda(String bevanda) {
-        this.bevanda = bevanda;
+    public void setBibita(String bibita) {
+        bibita = bibita.toUpperCase();
+        
+        for(Map.Entry i: BIBITE.entrySet()){
+            if(bibita.equals(i.getKey())){
+                this.bibita = ((String) i.getKey()).toLowerCase();
+            }
+        }
     }
  
     @Override

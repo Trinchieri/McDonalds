@@ -23,10 +23,15 @@ public class McCafe extends Ordine{
     public void setBevanda(String bevanda) {        
         bevanda = bevanda.toUpperCase();
         
-        for(Map.Entry i: BEVANDE.entrySet()){
-            if(bevanda.equals(i.getKey())){
-                this.bevanda = (String) i.getKey();
-                this.bevanda = this.bevanda.toLowerCase();
+        if(bevanda == ""){
+            this.bevanda = bevanda;
+        }
+        else{
+            for(Map.Entry i: BEVANDE.entrySet()){
+                if(bevanda.equals(i.getKey())){
+                    this.bevanda = (String) i.getKey();
+                    this.bevanda = this.bevanda.toLowerCase();
+                }
             }
         }
     }
@@ -34,12 +39,16 @@ public class McCafe extends Ordine{
     public void setPasta(String pasta) {
         pasta = pasta.toUpperCase();
         
-        for(Map.Entry i: PASTE.entrySet()){
-            if(pasta.equals(i.getKey())){
-                this.pasta = (String) i.getKey();
-                this.pasta = this.pasta.toLowerCase();
-            }
+        if(pasta == ""){
+            this.pasta = pasta;
         }
+        else {
+            for(Map.Entry i: PASTE.entrySet()){
+                if(pasta.equals(i.getKey())){
+                    this.pasta = ((String) i.getKey()).toLowerCase();
+                }
+            }
+        }        
     }
     
     @Override

@@ -22,7 +22,7 @@ public class Patata {
        
         for(Map.Entry i: PATATE.entrySet()){
             if(t.equals(i.getKey())){
-                this.tipo = (String) i.getValue();
+                this.tipo = (String) i.getKey();
                 if(i.getKey().equals("CLASSICHE")){
                     this.salsa = new Salsa(salsa);    
                 }

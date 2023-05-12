@@ -21,12 +21,12 @@ public class Main {
             
             System.out.println("\nVUOI ORDINARE?");
             risposta = scan.next().charAt(0);
-            toUpperCase(risposta);
+            risposta = toUpperCase(risposta);
             
             while (risposta!='N' && risposta!='S') {
                 System.out.println("DEVI INSERIRE S O N: ");
                 risposta = scan.next().charAt(0);
-                toUpperCase(risposta);
+                risposta = toUpperCase(risposta);
             }
             
             if (risposta=='S'){
@@ -76,11 +76,11 @@ public class Main {
                 System.out.println("\nPANINO: MCTOAST / HAMBURGER / CHICKENBURGER");
                 ordine1.setPanino(scan.nextLine());
                 
-                System.out.println("\nPATATE REGOLARI / CAROTINE BABY");
+                System.out.println("\nPATATE CLASSICHE / CAROTINE BABY");
                 ordine1.setContorno(scan.nextLine());
                 
-                System.out.println("\nBEVANDA: ");
-                ordine1.setBevanda(scan.nextLine());
+                System.out.println("\nBIBITA: ");
+                ordine1.setBibita(scan.nextLine());
                 
                 System.out.println("\nMELA / ANANAS / FORMAGGIO / ACTIMEL");
                 ordine1.setDessert(scan.nextLine());
@@ -98,16 +98,16 @@ public class Main {
                 System.out.println("\nPATATINE:");
                 String tipoPatatine = scan.nextLine();
                 
-                if (tipoPatatine.toUpperCase().equals("CLASSICHE")) {
-                    ordine1.setPatatine("classiche");
+                if (!tipoPatatine.toUpperCase().equals("PATATINE CLASSICHE")) {
+                    ordine1.setPatatine("patatine classiche");
                 }
                 else {
                     System.out.println("SALSA:");
                     ordine1.setPatatine(tipoPatatine, scan.nextLine());
                 }
                 
-                System.out.println("\nBEVANDA: ");
-                ordine1.setBevanda(scan.nextLine());
+                System.out.println("\nBIBITA: ");
+                ordine1.setBibita(scan.nextLine());
                 
                 System.out.println("DESSERT: ");
                 ordine1.setDessert(scan.nextLine());

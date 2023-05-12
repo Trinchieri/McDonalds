@@ -63,7 +63,7 @@ public class HappyMeal extends HappyMenu{
     
     @Override
     public String toString () {
-        return super.toString() + "HappyMeal [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bevanda + ", " + this.dessert + ", " + this.sorpresa + " ]";
+        return super.toString() + "HappyMeal [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bibita + ", " + this.dessert + ", " + this.sorpresa + " ]";
     }  
 
     @Override
