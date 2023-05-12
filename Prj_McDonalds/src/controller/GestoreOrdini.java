@@ -1,16 +1,10 @@
 package controller;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.Boolean.parseBoolean;
 import java.util.ArrayList;
-import model.HappyMeal;
-import model.McCafe;
-import model.McMenu;
 import model.Ordine;
 
 public class GestoreOrdini {
@@ -51,9 +45,11 @@ public class GestoreOrdini {
         
         // apre il file in scrittura
         PrintWriter fout = new PrintWriter(new FileWriter("ordini.txt"));
-        
+    
         //scrive l'ordine nel file
-        fout.println(o.toString());
+        for (Ordine i: ordini) {
+            fout.println(i);
+        }
                     
         fout.close(); // chiude il file  
     }
