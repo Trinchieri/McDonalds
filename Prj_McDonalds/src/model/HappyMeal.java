@@ -1,6 +1,7 @@
 package model;
 
 import controller.Constants;
+import static controller.Constants.SORPRESE;
 import controller.GestorePanini;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,14 +12,12 @@ public class HappyMeal extends HappyMenu{
     
     public HappyMeal(boolean asporto) {
         super(asporto);
+        
+        this.sorpresa = SORPRESE.get((int) Math.floor(Math.random()*4));
     }
 
     public String getSorpresa() {
         return sorpresa;
-    }
-
-    public void setSorpresa(String sorpresa) {
-        this.sorpresa = sorpresa;
     }
     
     @Override
@@ -64,19 +63,11 @@ public class HappyMeal extends HappyMenu{
     
     @Override
     public String toString () {
-        String x = super.toString() + "HappyMeal [ " + this.panino.getNome();
-        
-        if (!this.bevanda.equals("")) x += ", " + this.bevanda;
-        
-        if (!this.dessert.equals("")) x += ", " + this.dessert;
-        
-        if (!this.sorpresa.equals("")) x += ", " + this.sorpresa;
-        
-        return x + " ]";
+        return super.toString() + "HappyMeal [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bevanda + ", " + this.dessert + ", " + this.sorpresa + " ]";
     }  
 
     @Override
     public double calcolaPrezzo() {
-        return 5.90;
+        return 5.20;
     }
 }

@@ -6,22 +6,33 @@ public class McMenu extends HappyMenu{
     
     private Patata patatine;
     
-    public McMenu(boolean asporto, String panino, String bevanda, String dessert, String patatine, String salsa) throws Exception {
+    public McMenu(boolean asporto) throws Exception {
         super(asporto);
-        
-        if (!"classiche".equals(patatine)) {
-            this.patatine = new Patata(patatine);
-        }
-        else {
-            this.patatine = new Patata (patatine, salsa);
-        }
+    }
+    
+    public String getDessert() {
+        return dessert;
+    }
+    
+    public void setDessert(String dessert) {
+        this.dessert = dessert;
+    }
+    
+    public Patata getPatatine() {
+        return patatine;
+    }
+    
+    public void setPatatine(String patatine) throws Exception {
+        this.patatine = new Patata(patatine);
+    }
+    
+    public void setPatatine(String patatine, String salsa) throws Exception {
+        this.patatine = new Patata (patatine, salsa);
     }
     
     @Override
     public String toString () {
-        String x = super.toString() + "Menu [ " + this.panino.getNome();
-        
-        if (!this.patatine.equals(null)) x += ", " + this.patatine;
+        String x = super.toString() + "Menu [ " + this.panino.getNome() + ", " + this.patatine;
         
         if (!this.bevanda.equals("")) x += ", " + this.bevanda;
         

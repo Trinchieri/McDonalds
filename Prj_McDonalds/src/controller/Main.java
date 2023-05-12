@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import static java.lang.Character.toUpperCase;
 import java.util.Scanner;
 import model.HappyMeal;
 import model.McCafe;
@@ -14,10 +15,39 @@ public class Main {
         
         //Gestore ordini
         GestoreOrdini d = new GestoreOrdini();
+        char risposta; //utente decide se inserire altri ordini
         
+        do {
+            
+            System.out.println("\nVUOI ORDINARE?");
+            risposta = scan.next().charAt(0);
+            toUpperCase(risposta);
+            
+            while (risposta!='N' && risposta!='S') {
+                System.out.println("DEVI INSERIRE S O N: ");
+                risposta = scan.next().charAt(0);
+                toUpperCase(risposta);
+            }
+            
+            if (risposta=='S'){
+                nuovoOrdine(d);
+            }
+            
+        } while (risposta!='N');
+        
+        
+        //STAMPA DI TUTTI GLI ORDINI
+        System.out.println("\nSTAMPA ORDINI CORRENTI:");
+        for (Ordine i: d.getOrdini()) {
+            System.out.println(i);
+        }
+    }
+    
+    private static void nuovoOrdine (GestoreOrdini d) throws IOException, Exception {
+        Scanner scan = new Scanner(System.in);  //input da tastiera
         
         //ASPORTO
-        System.out.println("ASPORTO?");
+        System.out.println("\nASPORTO?");
         boolean asporto = false;
         if (scan.nextLine().toLowerCase().equals("true")) asporto = true;
         
@@ -46,7 +76,7 @@ public class Main {
                 System.out.println("\nPANINO: MCTOAST / HAMBURGER / CHICKENBURGER");
                 ordine1.setPanino(scan.nextLine());
                 
-                System.out.println("\nPATATE / CAROTINE BABY");
+                System.out.println("\nPATATE REGOLARI / CAROTINE BABY");
                 ordine1.setContorno(scan.nextLine());
                 
                 System.out.println("\nBEVANDA: ");
@@ -58,16 +88,34 @@ public class Main {
                 d.addOrdine(ordine1);
                 break;
             }
+            
+            case "MCMENU": {
+                McMenu ordine1 = new McMenu(asporto);
+                
+                System.out.println("\nPANINO:");
+                ordine1.setPanino(scan.nextLine());
+                
+                System.out.println("\nPATATINE:");
+                String tipoPatatine = scan.nextLine();
+                
+                if (tipoPatatine.toUpperCase().equals("CLASSICHE")) {
+                    ordine1.setPatatine("classiche");
+                }
+                else {
+                    System.out.println("SALSA:");
+                    ordine1.setPatatine(tipoPatatine, scan.nextLine());
+                }
+                
+                System.out.println("\nBEVANDA: ");
+                ordine1.setBevanda(scan.nextLine());
+                
+                System.out.println("DESSERT: ");
+                ordine1.setDessert(scan.nextLine());
+                
+                d.addOrdine(ordine1);
+                break;
+            }
         }
-        
-        
-        //STAMPA DI TUTTI GLI ORDINI
-        System.out.println("\nSTAMPA ORDINI CORRENTI:");
-        for (Ordine i: d.getOrdini()) {
-            System.out.println(i);
-        }
-        
-        
     }
     
 }

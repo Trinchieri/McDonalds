@@ -29,9 +29,7 @@ public class GestorePanini {
     public static Panino getPanino (String nome) {
         nome = nome.toUpperCase();
         
-        System.out.println(nome);
         for (Panino i: panini) {
-            System.out.println(i.getKey());
             if (i.getKey().equals(nome)) {
                 return i;
             }
