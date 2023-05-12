@@ -3,7 +3,9 @@ package controller;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import static java.lang.Boolean.parseBoolean;
 import java.util.ArrayList;
 import model.HappyMeal;
@@ -14,8 +16,12 @@ import model.Ordine;
 public class GestoreOrdini {
     private ArrayList<Ordine> ordini = new ArrayList<>();
     
+    // apre il file in scrittura
+    PrintWriter fout = new PrintWriter(new FileWriter("ordini.txt"));
+    
     public GestoreOrdini () throws FileNotFoundException, IOException, Exception {
-        BufferedReader br = new BufferedReader (new FileReader("ordini.csv"));
+        GestorePanini gPanini = new GestorePanini();
+        /*BufferedReader br = new BufferedReader (new FileReader("ordini.csv"));
         String line;
         
         while ((line = br.readLine()) != null) {
@@ -37,9 +43,20 @@ public class GestoreOrdini {
                     break;
                 }        
             }
-        }
+        }*/
     }
-
+    
+    public void addOrdine (Ordine o) throws IOException {
+        if (o == null) throw new NullPointerException ("Devi inserire un ordine");
+        
+        ordini.add(o);
+        
+        //scrive l'ordine nel file
+        fout.println(o.toString());
+                    
+        fout.close(); // chiude il file  
+    }
+    
     public ArrayList<Ordine> getOrdini() {
         return ordini;
     }

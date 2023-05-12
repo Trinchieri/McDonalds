@@ -17,8 +17,8 @@ public abstract class Ordine {
         dataOra = ZonedDateTime.now(ZoneId.of("Europe/Paris")).format(DateTimeFormatter.ofPattern("MM.dd.yyyy, hh.mm.ss", Locale.ITALY));
     }
     
-    public abstract double Prezzo();
-
+    public abstract double calcolaPrezzo();
+    
     public static int getNumeroOrdine() {
         return numeroOrdine;
     }

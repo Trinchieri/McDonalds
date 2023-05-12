@@ -18,7 +18,7 @@ public class GestorePanini {
         while ((line = br.readLine()) != null) {
             String info[] = line.split(",");
             
-            panini.add(new Panino(info[0], info[1], parseInt(info[2]), info[3], parseInt(info[4]), parseInt(info[5]), parseInt(info[6]), parseInt(info[7]), info[8]) {});
+            panini.add(new Panino(info[0], info[1], parseInt(info[2]), info[3], parseInt(info[4]), parseInt(info[5]), parseInt(info[6]), parseInt(info[7]), info[8], info[9]) {});
         }
     }
     
@@ -27,8 +27,12 @@ public class GestorePanini {
     }
     
     public static Panino getPanino (String nome) {
+        nome = nome.toUpperCase();
+        
+        System.out.println(nome);
         for (Panino i: panini) {
-            if (i.getNome().equals(nome)) {
+            System.out.println(i.getKey());
+            if (i.getKey().equals(nome)) {
                 return i;
             }
         }

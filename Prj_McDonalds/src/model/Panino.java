@@ -7,11 +7,12 @@ public abstract class Panino {
     private Map<String, String> caratteristicheString = new HashMap<String,String>();
     private Map<String, Integer> caratteristicheInt = new HashMap<String,Integer>();
     
-    public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane) {
+    public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane, String key) {
         caratteristicheString.put("NOME", nome);
         caratteristicheString.put("BURGER", burger);
         caratteristicheString.put("SALSA", salsa);
         caratteristicheString.put("PANE", pane);
+        caratteristicheString.put("KEY", key);
         
         caratteristicheInt.put("FORMAGGIO", formaggio);
         caratteristicheInt.put("INSALATA", insalata);
@@ -22,6 +23,10 @@ public abstract class Panino {
     
     public String getNome () {
        return caratteristicheString.get("NOME");
+    }
+    
+    public String getKey () {
+       return caratteristicheString.get("KEY");
     }
     
     @Override

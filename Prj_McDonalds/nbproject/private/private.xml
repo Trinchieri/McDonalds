@@ -3,17 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/HappyMenu.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/Ordine.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/controller/Constants.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/ordini.csv</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/Panino.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/controller/Main.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/Salsa.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/HappyMeal.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/McMenu.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/Patata.java</file>
-            <file>file:/E:/Users/martucciortegar/Desktop/McDonalds/Prj_McDonalds/src/model/McCafe.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/ordini.csv</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/controller/Constants.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/model/McMenu.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/controller/Main.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/ordini.txt</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/model/Panino.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/model/HappyMenu.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/model/HappyMeal.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/controller/GestorePanini.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/src/controller/GestoreOrdini.java</file>
+            <file>file:/C:/Users/utente/OneDrive/Desktop/McDonalds/Prj_McDonalds/panini.csv</file>
         </group>
     </open-files>
 </project-private>

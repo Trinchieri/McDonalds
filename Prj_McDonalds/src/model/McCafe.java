@@ -5,12 +5,8 @@ import controller.Constants;
 public class McCafe extends Ordine{
     private String bevanda, pasta;
 
-    public McCafe(boolean asporto, String bevanda, String pasta) {
+    public McCafe(boolean asporto) {
         super(asporto);
-        this.bevanda = bevanda;
-        this.pasta = pasta;
-        
-        calcolaPrezzo();
     }
 
     public String getBevanda() {
@@ -19,6 +15,14 @@ public class McCafe extends Ordine{
 
     public String getPasta() {
         return pasta;
+    }
+
+    public void setBevanda(String bevanda) {
+        this.bevanda = bevanda;
+    }
+
+    public void setPasta(String pasta) {
+        this.pasta = pasta;
     }
     
     @Override
@@ -32,8 +36,10 @@ public class McCafe extends Ordine{
         
         return x + " ]";
     }
-
-    private void calcolaPrezzo () {
+    
+    @Override
+    public double calcolaPrezzo () {
+        double prezzo = 0;
         
         if (!bevanda.equals("")) {
             
@@ -48,5 +54,7 @@ public class McCafe extends Ordine{
             
             prezzo += Constants.PASTE.get(cercaPasta);
         }
+        
+        return prezzo;
     }
 }

@@ -25,7 +25,7 @@ public class Constants {
     
     public static final Map<String,Double> BEVANDE = new HashMap<String,Double>(){
         {
-            put("CAPUCCINO",2.0);
+            put("CAPPUCCINO",2.0);
             put("CIOCCOLATA CALDA",1.5);
             put("CAFFE ESPRESSO",2.5);
         }
@@ -33,9 +33,9 @@ public class Constants {
     
     public static final Map<String,Double> PASTE = new HashMap<String,Double>(){
         {
-            put("CROISSANT CON LA NUTELLA",1.5);
+            put("CROISSANT CON NUTELLA",1.5);
             put("MUFFIN CIOCCOLATO",2.0);
-            put("CHEESCAKE ALLA FRAGOLA",3.0);
+            put("CHEESECAKE ALLA FRAGOLA",3.0);
         }
     };
     
