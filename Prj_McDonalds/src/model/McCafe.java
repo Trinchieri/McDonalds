@@ -68,17 +68,11 @@ public class McCafe extends Ordine{
         double prezzo = 0;
         
         if (!bevanda.equals("")) {
-            
-            String cercaBevanda = bevanda.toUpperCase();
-            
-            prezzo += Constants.BEVANDE.get(cercaBevanda);
+            prezzo += Constants.BEVANDE.get(bevanda.toUpperCase());
         }
         
         if (!pasta.equals("")) {
-            
-            String cercaPasta = pasta.toUpperCase();
-            
-            prezzo += Constants.PASTE.get(cercaPasta);
+            prezzo += Constants.PASTE.get(pasta.toUpperCase());
         }
         
         return prezzo;

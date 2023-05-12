@@ -31,6 +31,7 @@ public class Main {
             
             if (risposta=='S'){
                 nuovoOrdine(d);
+                
             }
             
         } while (risposta!='N');
@@ -40,6 +41,7 @@ public class Main {
         System.out.println("\nSTAMPA ORDINI CORRENTI:");
         for (Ordine i: d.getOrdini()) {
             System.out.println(i);
+            System.out.println("PREZZO:" + i.calcolaPrezzo() + "\n");
         }
     }
     

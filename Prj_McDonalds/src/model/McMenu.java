@@ -45,9 +45,7 @@ public class McMenu extends HappyMenu{
     
     @Override
     public String toString () {
-        String x = super.toString() + "Menu [ " + this.panino.getNome() + ", " + this.patatine;
-        
-        if (!this.bibita.equals("")) x += ", " + this.bibita;
+        String x = super.toString() + "Menu [ " + this.panino.getNome() + ", " + this.patatine + ", " + this.bibita;
         
         if (!this.dessert.equals("")) x += ", " + this.dessert;
         
@@ -56,35 +54,16 @@ public class McMenu extends HappyMenu{
 
     @Override
     public double calcolaPrezzo() {
-        
-        /*if (!panino.equals(null)) {
-            
-            String cercaPanino = panino.getNome().toUpperCase();
-            
-            prezzo += Constants.PANINI.get(cercaPanino);
-        }
-        
-        if (!bevanda.equals("")) {
-            
-            String cercaBevanda = bevanda.toUpperCase();
-            
-            prezzo += Constants.BEVANDE.get(cercaBevanda);
-        }
+        double prezzo = panino.getPrezzo() + Constants.BIBITE.get(bibita.toUpperCase()) + Constants.PATATE.get(patatine.getTipo().toUpperCase());
         
         if (!dessert.equals("")) {
-            
-            String cercaDessert = dessert.toUpperCase();
-            
-            prezzo += Constants.DESSERT.get(cercaDessert);
+            prezzo += Constants.DESSERTS.get(dessert.toUpperCase());
         }
         
-        if (!patatine.equals(null)) {
-            
-            String cercaPatatine = patatine.getTipo().toUpperCase();
-            
-            prezzo += Constants.PATATINE.get(cercaPatatine);
-        }*/
+        if (patatine.getTipo().equals("classiche")) {
+            prezzo += 0.30; //prezzo della salsa
+        }
         
-        return 0;
+        return prezzo;
     } 
 }

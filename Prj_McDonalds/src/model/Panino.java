@@ -6,8 +6,9 @@ import java.util.Map;
 public abstract class Panino {
     private Map<String, String> caratteristicheString = new HashMap<String,String>();
     private Map<String, Integer> caratteristicheInt = new HashMap<String,Integer>();
+    double prezzo;
     
-    public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane, String key) {
+    public Panino(String nome, String burger, int formaggio, String salsa, int insalata, int cipolla, int cetriolo, int bacon, String pane, String key, double prezzo) {
         caratteristicheString.put("NOME", nome);
         caratteristicheString.put("BURGER", burger);
         caratteristicheString.put("SALSA", salsa);
@@ -19,6 +20,8 @@ public abstract class Panino {
         caratteristicheInt.put("CIPOLLA", cipolla);
         caratteristicheInt.put("CETRIOLO", cetriolo);
         caratteristicheInt.put("BACON", bacon);
+        
+        this.prezzo = prezzo;
     }
     
     public String getNome () {
@@ -27,6 +30,10 @@ public abstract class Panino {
     
     public String getKey () {
        return caratteristicheString.get("KEY");
+    }
+    
+    public double getPrezzo () {
+        return prezzo;
     }
     
     @Override

@@ -16,11 +16,9 @@ import model.Ordine;
 public class GestoreOrdini {
     private ArrayList<Ordine> ordini = new ArrayList<>();
     
-    // apre il file in scrittura
-    PrintWriter fout = new PrintWriter(new FileWriter("ordini.txt"));
-    
     public GestoreOrdini () throws FileNotFoundException, IOException, Exception {
         GestorePanini gPanini = new GestorePanini();
+        
         /*BufferedReader br = new BufferedReader (new FileReader("ordini.csv"));
         String line;
         
@@ -50,6 +48,9 @@ public class GestoreOrdini {
         if (o == null) throw new NullPointerException ("Devi inserire un ordine");
         
         ordini.add(o);
+        
+        // apre il file in scrittura
+        PrintWriter fout = new PrintWriter(new FileWriter("ordini.txt"));
         
         //scrive l'ordine nel file
         fout.println(o.toString());
