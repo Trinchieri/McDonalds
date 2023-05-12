@@ -38,5 +38,13 @@ public class Constants {
             put("CHEESECAKE ALLA FRAGOLA",3.0);
         }
     };
-    
+
+    public static final Map <Integer,String> SORPRESE = new HashMap<Integer,String>(){
+        {
+            put(0,"Maria Silvia Gatti");
+            put(1,"Giulio Angiani");
+            put(2,"Bertino");
+            put(3,"Giorgio");
+        }
+    };
 }

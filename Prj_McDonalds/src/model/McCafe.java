@@ -1,6 +1,9 @@
 package model;
 
 import controller.Constants;
+import static controller.Constants.BEVANDE;
+import static controller.Constants.PASTE;
+import java.util.Map;
 
 public class McCafe extends Ordine{
     private String bevanda, pasta;
@@ -17,12 +20,26 @@ public class McCafe extends Ordine{
         return pasta;
     }
 
-    public void setBevanda(String bevanda) {
-        this.bevanda = bevanda;
+    public void setBevanda(String bevanda) {        
+        bevanda = bevanda.toUpperCase();
+        
+        for(Map.Entry i: BEVANDE.entrySet()){
+            if(bevanda.equals(i.getKey())){
+                this.bevanda = (String) i.getKey();
+                this.bevanda = this.bevanda.toLowerCase();
+            }
+        }
     }
 
     public void setPasta(String pasta) {
-        this.pasta = pasta;
+        pasta = pasta.toUpperCase();
+        
+        for(Map.Entry i: PASTE.entrySet()){
+            if(pasta.equals(i.getKey())){
+                this.pasta = (String) i.getKey();
+                this.pasta = this.pasta.toLowerCase();
+            }
+        }
     }
     
     @Override
