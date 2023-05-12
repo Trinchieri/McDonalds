@@ -2,3 +2,13 @@ Big Mac,carne bovina,1,salsa Big Mac,1,1,1,0,pane
 McChicken,petto di pollo,0,salsa McChicken,1,0,0,0,pane
 Gran Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane
 Gran Crispy McBacon Chicken,petto di pollo,1,salsa crispy,0,0,0,1,pane
+McToast,prosciutto cotto,1,,0,0,0,0,pane
+Chickenburger,pollo impanato,0,salsa caesar,0,0,0,0,pane
+Hamburger,carne bovina,0,ketchup e senape,0,1,1,0,pane
+Crispy Chicken McWrap,pollo impanato,1,salsa crispy,1,0,0,0,tortilla
+Crispy McWrap,carne bovina,1,salsa crispy,1,0,0,0,tortilla
+Double Chicken BBQ,petto di pollo,1,salsa BBQ,1,1,0,0,pane
+McMuffin Bacon Egg,uovo,1,,0,0,0,1,pane
+Filet-O-Fish,merluzzo impanato,1,salsa tartara,0,0,0,0,pane
+Crispy McBacon,carne bovina,1,salsa crispy,0,0,0,1,pane
+Cheeseburger,carne bovina,1,ketchup e senape,0,1,1,0,pane
