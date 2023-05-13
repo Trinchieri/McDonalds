@@ -49,9 +49,16 @@ public class Main {
         Scanner scan = new Scanner(System.in);  //input da tastiera
         
         //ASPORTO
-        System.out.println("\nASPORTO?");
+        System.out.println("\nASPORTO? (SI / NO)");
+        String appAsporto = scan.nextLine().toUpperCase();
         boolean asporto = false;
-        if (scan.nextLine().toLowerCase().equals("true")) asporto = true;
+        
+        while (appAsporto!="SI" && appAsporto!="NO") {
+            System.out.println("DEVI INSERIRE SI / NO");
+            appAsporto = scan.nextLine().toUpperCase();
+        }
+        
+        if (scan.nextLine().equals("SI")) asporto = true;
         
         
         //SCELTA MCMENU / HAPPYMEAL / MCCAFE
@@ -67,6 +74,40 @@ public class Main {
                 
                 System.out.println("\nPASTA:");
                 ordine1.setPasta(scan.nextLine());
+                
+                //MODIFICA ORDINE
+                String risposta;
+                        
+                do {
+                    System.out.println("\nVUOI MODIFICARE L'ORDINE? (SI / NO)");
+                    risposta = scan.nextLine().toUpperCase();
+                    
+                    while (risposta!="NO" && risposta!="SI") {
+                        System.out.println("DEVI INSERIRE SI O NO: ");
+                        risposta = scan.nextLine().toUpperCase();
+                    }
+                    
+                    System.out.println("\nCOSA VUOI MODIFICARE (BEVANDA / PASTA)?");
+                    String modifica = scan.nextLine().toUpperCase();
+                    
+                    switch (modifica) {
+                        case "BEVANDA": {
+                            System.out.println("\nBEVANDA:");
+                            ordine1.setBevanda(scan.nextLine());
+                            break;
+                        }
+                        
+                        case "PASTA": {
+                            System.out.println("\nPASTA:");
+                            ordine1.setPasta(scan.nextLine());
+                            break;
+                        }
+                        
+                        default: {
+                            System.out.println("Non puoi modificare questo campo");
+                        }
+                    }
+                } while (risposta!="NO");
                 
                 d.addOrdine(ordine1);
                 break;
@@ -87,6 +128,52 @@ public class Main {
                 System.out.println("\nMELA / ANANAS / FORMAGGIO / ACTIMEL");
                 ordine1.setDessert(scan.nextLine());
                 
+                //MODIFICA ORDINE
+                String risposta;
+                        
+                do {
+                    System.out.println("\nVUOI MODIFICARE L'ORDINE? (SI / NO)");
+                    risposta = scan.nextLine().toUpperCase();
+                    
+                    while (risposta!="NO" && risposta!="SI") {
+                        System.out.println("DEVI INSERIRE SI O NO: ");
+                        risposta = scan.nextLine().toUpperCase();
+                    }
+                    
+                    System.out.println("\nCOSA VUOI MODIFICARE (PANINO / CONTORNO / BIBITA / DESSERT)?");
+                    String modifica = scan.nextLine().toUpperCase();
+                    
+                    switch (modifica) {
+                        case "PANINO": {
+                            System.out.println("\nPANINO: MCTOAST / HAMBURGER / CHICKENBURGER");
+                            ordine1.setPanino(scan.nextLine());
+                            break;
+                        }
+                        
+                        case "CONTORNO": {
+                            System.out.println("\nPATATE CLASSICHE / CAROTINE BABY");
+                            ordine1.setContorno(scan.nextLine());
+                            break;
+                        }
+                        
+                        case "BIBITA": {
+                            System.out.println("\nBIBITA: ");
+                            ordine1.setBibita(scan.nextLine());
+                            break;
+                        }
+                        
+                        case "DESSERT": {
+                            System.out.println("\nMELA / ANANAS / FORMAGGIO / ACTIMEL");
+                            ordine1.setDessert(scan.nextLine());
+                            break;
+                        }
+                        
+                        default: {
+                            System.out.println("Non puoi modificare questo campo");
+                        }
+                    }
+                } while (risposta!="NO");
+                
                 d.addOrdine(ordine1);
                 break;
             }
@@ -97,11 +184,11 @@ public class Main {
                 System.out.println("\nPANINO:");
                 ordine1.setPanino(scan.nextLine());
                 
-                System.out.println("\nPATATINE:");
+                System.out.println("\nPATATINE (CLASSICHE / VERTIGO / CHEDDAR / CB):");
                 String tipoPatatine = scan.nextLine();
                 
-                if (!tipoPatatine.toUpperCase().equals("PATATINE CLASSICHE")) {
-                    ordine1.setPatatine("patatine classiche");
+                if (!tipoPatatine.toUpperCase().equals("CLASSICHE")) {
+                    ordine1.setPatatine("classiche");
                 }
                 else {
                     System.out.println("SALSA:");
@@ -114,10 +201,64 @@ public class Main {
                 System.out.println("DESSERT: ");
                 ordine1.setDessert(scan.nextLine());
                 
+                
+                //MODIFICA ORDINE
+                String risposta;
+                        
+                do {
+                    System.out.println("\nVUOI MODIFICARE L'ORDINE? (SI / NO)");
+                    risposta = scan.nextLine().toUpperCase();
+                    
+                    while (risposta!="NO" && risposta!="SI") {
+                        System.out.println("DEVI INSERIRE SI O NO: ");
+                        risposta = scan.nextLine().toUpperCase();
+                    }
+                    
+                    System.out.println("\nCOSA VUOI MODIFICARE (PANINO / PATATINE / BIBITA / DESSERT)?");
+                    String modifica = scan.nextLine().toUpperCase();
+                    
+                    switch (modifica) {
+                        case "PANINO": {
+                            System.out.println("\nPANINO:");
+                            ordine1.setPanino(scan.nextLine());
+                            break;
+                        }
+                        
+                        case "PATATINE": {
+                            System.out.println("\nPATATINE (CLASSICHE / VERTIGO / CHEDDAR / CB):");
+                            tipoPatatine = scan.nextLine();
+
+                            if (!tipoPatatine.toUpperCase().equals("CLASSICHE")) {
+                                ordine1.setPatatine("classiche");
+                            }
+                            else {
+                                System.out.println("SALSA:");
+                                ordine1.setPatatine(tipoPatatine, scan.nextLine());
+                            }
+                            break;
+                        }
+                        
+                        case "BIBITA": {
+                            System.out.println("\nBIBITA: ");
+                            ordine1.setBibita(scan.nextLine());
+                            break;
+                        }
+                        
+                        case "DESSERT": {
+                            System.out.println("DESSERT: ");
+                            ordine1.setDessert(scan.nextLine());
+                            break;
+                        }
+                        
+                        default: {
+                            System.out.println("Non puoi modificare questo campo");
+                        }
+                    }
+                } while (risposta!="NO");
+                
                 d.addOrdine(ordine1);
                 break;
             }
         }
-    }
-    
+    } 
 }

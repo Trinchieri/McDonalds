@@ -17,17 +17,17 @@ public class McMenu extends HappyMenu{
     }
     
     public void setDessert(String dessert) {
-        dessert = dessert.toUpperCase();
-        
         if(dessert == ""){
             this.dessert = "";
         }
         else{
+            dessert = dessert.toUpperCase();
+            
             for(Map.Entry i: DESSERTS.entrySet()){
                if(dessert.equals(i.getKey())){
                    this.dessert = ((String) i.getKey()).toLowerCase();
                }
-           }
+            }
         }
     }
     
