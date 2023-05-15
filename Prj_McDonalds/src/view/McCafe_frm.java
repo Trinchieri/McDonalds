@@ -10,6 +10,8 @@ public class McCafe_frm extends javax.swing.JFrame {
     
     public McCafe_frm() {
         initComponents();
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -85,9 +87,9 @@ public class McCafe_frm extends javax.swing.JFrame {
 
     private void AsportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsportoActionPerformed
         // TODO add your handling code here:
-        /*if (Asporto.isSelected()) {
+        if (Asporto.isSelected()) {
             this.asporto = true;
-        }*/
+        }
     }//GEN-LAST:event_AsportoActionPerformed
 
     public static void main(String args[]) {
