@@ -1,5 +1,8 @@
 package view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class CheckOrdine extends javax.swing.JFrame {
 
     public CheckOrdine() {
@@ -102,10 +105,13 @@ public class CheckOrdine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        McDonaldsGUI m = new McDonaldsGUI();
-        
-        m.setVisible(true);
-        this.setVisible(false);
+        try {
+            McDonaldsGUI m = new McDonaldsGUI(); 
+            m.setVisible(true);
+            this.setVisible(false);
+        } catch (Exception ex) {
+            Logger.getLogger(CheckOrdine.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {

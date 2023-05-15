@@ -1,9 +1,15 @@
 package view;
 
+import controller.GestoreOrdini;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class McDonaldsGUI extends javax.swing.JFrame {
 
-    public McDonaldsGUI() {
+    public McDonaldsGUI() throws Exception {
         initComponents();
+        
+        GestoreOrdini go = new GestoreOrdini();
     }
 
     @SuppressWarnings("unchecked")
@@ -11,7 +17,6 @@ public class McDonaldsGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         menu = new javax.swing.JButton();
         cafe = new javax.swing.JButton();
         happymeal = new javax.swing.JButton();
@@ -27,13 +32,6 @@ public class McDonaldsGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-
-        jButton1.setText("Mc Cafe");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,10 +96,6 @@ public class McDonaldsGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         Menu_frm menu = new Menu_frm();
         
@@ -127,11 +121,11 @@ public class McDonaldsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_happymealActionPerformed
 
     private void checkOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOrdineActionPerformed
-        /*CheckOrdine check = new CheckOrdine();
+        CheckOrdine check = new CheckOrdine();
         
         check.setVisible(true);
         
-        this.setVisible(false);*/
+        this.setVisible(false);
     }//GEN-LAST:event_checkOrdineActionPerformed
 
     public static void main(String args[]) {
@@ -161,7 +155,11 @@ public class McDonaldsGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new McDonaldsGUI().setVisible(true);
+                try {
+                    new McDonaldsGUI().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(McDonaldsGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -170,7 +168,6 @@ public class McDonaldsGUI extends javax.swing.JFrame {
     private javax.swing.JButton cafe;
     private javax.swing.JButton checkOrdine;
     private javax.swing.JButton happymeal;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menu;
     // End of variables declaration//GEN-END:variables

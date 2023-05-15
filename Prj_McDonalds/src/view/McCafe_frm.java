@@ -1,7 +1,13 @@
 package view;
 
-public class McCafe_frm extends javax.swing.JFrame {
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+public class McCafe_frm extends javax.swing.JFrame {
+        
+    String bevanda, pasta;
+    boolean asporto;
+    
     public McCafe_frm() {
         initComponents();
     }
@@ -10,11 +16,9 @@ public class McCafe_frm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         titolo = new javax.swing.JLabel();
         aggiungiOrdine = new javax.swing.JButton();
-        asporto = new javax.swing.JCheckBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        Asporto = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -27,57 +31,64 @@ public class McCafe_frm extends javax.swing.JFrame {
             }
         });
 
-        asporto.setText("asporto");
-        asporto.addActionListener(new java.awt.event.ActionListener() {
+        Asporto.setText("Asporto");
+        Asporto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asportoActionPerformed(evt);
+                AsportoActionPerformed(evt);
             }
         });
-
-        jCheckBox1.setText("jCheckBox1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(titolo)
+                .addGap(282, 282, 282))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(titolo))
+                        .addGap(61, 61, 61)
+                        .addComponent(Asporto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(aggiungiOrdine))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(asporto))))
-                .addContainerGap(201, Short.MAX_VALUE))
+                        .addGap(221, 221, 221)
+                        .addComponent(aggiungiOrdine)))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titolo)
-                .addGap(52, 52, 52)
-                .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addComponent(asporto)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addComponent(Asporto)
+                .addGap(26, 26, 26)
                 .addComponent(aggiungiOrdine)
-                .addGap(27, 27, 27))
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
+        try {
+            McDonaldsGUI nuovoOrdine = new McDonaldsGUI();
 
+            nuovoOrdine.setVisible(true);
+            
+            this.setVisible(false);
+        } catch (Exception ex) {
+            Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
 
-    private void asportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asportoActionPerformed
-    }//GEN-LAST:event_asportoActionPerformed
+    private void AsportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsportoActionPerformed
+        // TODO add your handling code here:
+        /*if (Asporto.isSelected()) {
+            this.asporto = true;
+        }*/
+    }//GEN-LAST:event_AsportoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -112,10 +123,8 @@ public class McCafe_frm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox Asporto;
     private javax.swing.JButton aggiungiOrdine;
-    private javax.swing.JCheckBox asporto;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel titolo;
     // End of variables declaration//GEN-END:variables
 }

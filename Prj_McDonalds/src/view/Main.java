@@ -1,5 +1,6 @@
-package controller;
+package view;
 
+import controller.GestoreOrdini;
 import java.io.IOException;
 import static java.lang.Character.toUpperCase;
 import java.util.Scanner;
