@@ -1,6 +1,9 @@
 package view;
 
 import controller.Constants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,10 +14,21 @@ public class HappyMeal_frm extends javax.swing.JFrame {
     private String valuePanino, valueContorno, valueBibita, valueDessert;
     private boolean isAsporto;
     
-    public HappyMeal_frm() {
+    public HappyMeal_frm(McDonaldsGUI gui) {
         initComponents();
         
         sceltaBibite.setModel(new DefaultComboBoxModel<>(caricaBibite()));
+        
+        aggiungiOrdine.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    gui.go.addOrdine(creaOrdine());
+                } catch (IOException ex) {
+                    Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -165,18 +179,23 @@ public class HappyMeal_frm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private HappyMeal creaOrdine(){        
+        HappyMeal x = new HappyMeal(isAsporto);
+        
+        x.setPanino(valuePanino);
+        x.setContorno(valueContorno);
+        x.setBibita(valueBibita);
+        x.setDessert(valueDessert);
+        
+        return x;
+    }
+    
     private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
         try {
             McDonaldsGUI nuovoOrdine = new McDonaldsGUI();
             
             nuovoOrdine.setVisible(true);
-            
-            HappyMeal x = new HappyMeal(isAsporto);
-            x.setPanino(valuePanino);
-            x.setContorno(valueContorno);
-            x.setBibita(valueBibita);
-            x.setDessert(valueDessert);
-            
+
             this.setVisible(false);
         } catch (Exception ex) {
             Logger.getLogger(HappyMeal_frm.class.getName()).log(Level.SEVERE, null, ex);
@@ -245,7 +264,7 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HappyMeal_frm().setVisible(true);
+                new HappyMeal_frm(null).setVisible(true);
             }
         });
     }

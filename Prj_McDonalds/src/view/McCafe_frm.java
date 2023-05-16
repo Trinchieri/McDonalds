@@ -1,6 +1,9 @@
 package view;
 
 import controller.Constants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,13 +15,24 @@ public class McCafe_frm extends javax.swing.JFrame {
     String valueBevanda, valuePasta;
     boolean isAsporto;
     
-    public McCafe_frm() {
+    public McCafe_frm(McDonaldsGUI aThis) {
         initComponents();
         
         sceltaBevande.setModel(new DefaultComboBoxModel<>(caricaBevande()));
         sceltaPaste.setModel(new DefaultComboBoxModel<>(caricaPaste()));
+        
+        aggiungiOrdine.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    aThis.go.addOrdine(creaOrdine());
+                } catch (IOException ex) {
+                    Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,16 +136,20 @@ public class McCafe_frm extends javax.swing.JFrame {
 
             nuovoOrdine.setVisible(true);
             
-            McCafe x = new McCafe(isAsporto);
-            x.setBevanda(valueBevanda);
-            x.setPasta(valuePasta);
-            
             this.setVisible(false);
         } catch (Exception ex) {
             Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
-
+    
+    private McCafe creaOrdine(){        
+        McCafe x = new McCafe(isAsporto);
+        
+        x.setBevanda(valueBevanda);
+        x.setPasta(valuePasta);
+        return x;
+    }
+    
     private void asportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asportoActionPerformed
         if (asporto.isSelected()) {
             this.isAsporto = true;
@@ -176,37 +194,6 @@ public class McCafe_frm extends javax.swing.JFrame {
         return paste;
     }
     
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(McCafe_frm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(McCafe_frm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(McCafe_frm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(McCafe_frm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new McCafe_frm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungiOrdine;

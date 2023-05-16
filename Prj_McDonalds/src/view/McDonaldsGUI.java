@@ -6,10 +6,10 @@ import java.util.logging.Logger;
 
 public class McDonaldsGUI extends javax.swing.JFrame {
 
+    public GestoreOrdini go = new GestoreOrdini();
+    
     public McDonaldsGUI() throws Exception {
         initComponents();
-        
-        GestoreOrdini go = new GestoreOrdini();
     }
 
     @SuppressWarnings("unchecked")
@@ -101,21 +101,21 @@ public class McDonaldsGUI extends javax.swing.JFrame {
         menuGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_menuActionPerformed
-
+    
     private void cafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeActionPerformed
-        McCafe_frm cafeGUI = new McCafe_frm();
+        McCafe_frm cafeGUI = new McCafe_frm(this);
         cafeGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cafeActionPerformed
 
     private void happymealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_happymealActionPerformed
-        HappyMeal_frm happyMealGUI = new HappyMeal_frm();
+        HappyMeal_frm happyMealGUI = new HappyMeal_frm(this);
         happyMealGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_happymealActionPerformed
 
     private void checkOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOrdineActionPerformed
-        CheckOrdine checkGUI = new CheckOrdine();  
+        CheckOrdine checkGUI = new CheckOrdine(this.go);
         checkGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_checkOrdineActionPerformed
@@ -154,7 +154,6 @@ public class McDonaldsGUI extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cafe;
     private javax.swing.JButton checkOrdine;

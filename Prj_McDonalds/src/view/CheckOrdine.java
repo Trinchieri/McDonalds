@@ -1,13 +1,29 @@
 package view;
 
+import controller.GestoreOrdini;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import model.Ordine;
 
 public class CheckOrdine extends javax.swing.JFrame {
 
-    public CheckOrdine() {
+    public CheckOrdine(GestoreOrdini g) {
         initComponents();
-        this.getContentPane().setBackground(new java.awt.Color(59, 173, 68));
+        //this.getContentPane().setBackground(new java.awt.Color(59, 173, 68));
+        listaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(g)));
+    }
+
+    private String[] caricaOrdini (GestoreOrdini g) {
+        String [] ordini = new String [g.getOrdini().size()];
+        int i=0;
+        
+        for(Ordine x:g.getOrdini()){
+            ordini[i] =x.toString();
+            i++;
+        }
+        
+        return ordini;
     }
 
     @SuppressWarnings("unchecked")
@@ -20,7 +36,7 @@ public class CheckOrdine extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaOrdini = new javax.swing.JList<>();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,8 +58,7 @@ public class CheckOrdine extends javax.swing.JFrame {
             }
         });
 
-        jList1.setBackground(new java.awt.Color(255, 207, 82));
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaOrdini);
 
         jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
         jLabel2.setText("PREZZO");
@@ -66,20 +81,20 @@ public class CheckOrdine extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(49, 49, 49))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +156,7 @@ public class CheckOrdine extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CheckOrdine().setVisible(true);
+                new CheckOrdine(null).setVisible(true);
             }
         });
     }
@@ -152,10 +167,10 @@ public class CheckOrdine extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JList<String> listaOrdini;
     // End of variables declaration//GEN-END:variables
 }
