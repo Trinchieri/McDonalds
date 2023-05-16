@@ -97,34 +97,26 @@ public class McDonaldsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
-        Menu_frm menu = new Menu_frm();
-        
-        menu.setVisible(true);
-        
+        Menu_frm menuGUI = new Menu_frm();
+        menuGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_menuActionPerformed
 
     private void cafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeActionPerformed
-        McCafe_frm cafe = new McCafe_frm();
-        
-        cafe.setVisible(true);
-        
+        McCafe_frm cafeGUI = new McCafe_frm();
+        cafeGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cafeActionPerformed
 
     private void happymealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_happymealActionPerformed
-        HappyMeal_frm happyMeal = new HappyMeal_frm();
-        
-        happyMeal.setVisible(true);
-        
+        HappyMeal_frm happyMealGUI = new HappyMeal_frm();
+        happyMealGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_happymealActionPerformed
 
     private void checkOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOrdineActionPerformed
-        CheckOrdine check = new CheckOrdine();
-        
-        check.setVisible(true);
-        
+        CheckOrdine checkGUI = new CheckOrdine();  
+        checkGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_checkOrdineActionPerformed
 
@@ -152,7 +144,6 @@ public class McDonaldsGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

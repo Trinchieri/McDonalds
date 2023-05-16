@@ -4,19 +4,17 @@ import controller.Constants;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import model.HappyMeal;
 
 public class HappyMeal_frm extends javax.swing.JFrame {
-    private String valuePanino, valueContorno, valueBibite, valueDessert;
+    private String valuePanino, valueContorno, valueBibita, valueDessert;
     private boolean isAsporto;
     
     public HappyMeal_frm() {
         initComponents();
         
-        bibita.setModel(new DefaultComboBoxModel<>(caricaBibite()));
+        sceltaBibite.setModel(new DefaultComboBoxModel<>(caricaBibite()));
     }
 
     @SuppressWarnings("unchecked")
@@ -26,14 +24,14 @@ public class HappyMeal_frm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         titolo = new javax.swing.JLabel();
         aggiungiOrdine = new javax.swing.JButton();
-        panino = new javax.swing.JComboBox<>();
+        sceltaPanini = new javax.swing.JComboBox<>();
         labelPanino = new javax.swing.JLabel();
         labelContorno = new javax.swing.JLabel();
-        contorno = new javax.swing.JComboBox<>();
+        sceltaContorni = new javax.swing.JComboBox<>();
         labelBibita = new javax.swing.JLabel();
-        bibita = new javax.swing.JComboBox<>();
+        sceltaBibite = new javax.swing.JComboBox<>();
         labelDessert = new javax.swing.JLabel();
-        dessert = new javax.swing.JComboBox<>();
+        sceltaDesserts = new javax.swing.JComboBox<>();
         asporto = new javax.swing.JCheckBox();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -58,10 +56,10 @@ public class HappyMeal_frm extends javax.swing.JFrame {
             }
         });
 
-        panino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "toast", "hamburger", "chickenburger" }));
-        panino.addActionListener(new java.awt.event.ActionListener() {
+        sceltaPanini.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "toast", "hamburger", "chickenburger" }));
+        sceltaPanini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paninoActionPerformed(evt);
+                sceltaPaniniActionPerformed(evt);
             }
         });
 
@@ -69,24 +67,29 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
         labelContorno.setText("CONTORNO:");
 
-        contorno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "patatine", "carotine baby" }));
-        contorno.addActionListener(new java.awt.event.ActionListener() {
+        sceltaContorni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "patatine", "carotine baby" }));
+        sceltaContorni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contornoActionPerformed(evt);
+                sceltaContorniActionPerformed(evt);
             }
         });
 
         labelBibita.setText("BIBITA:");
 
-        bibita.addActionListener(new java.awt.event.ActionListener() {
+        sceltaBibite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bibitaActionPerformed(evt);
+                sceltaBibiteActionPerformed(evt);
             }
         });
 
         labelDessert.setText("DESSERT:");
 
-        dessert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "mela", "ananas", "formaggio", "actimel" }));
+        sceltaDesserts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "mela", "ananas", "formaggio", "actimel" }));
+        sceltaDesserts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceltaDessertsActionPerformed(evt);
+            }
+        });
 
         asporto.setText("Asporto");
         asporto.addActionListener(new java.awt.event.ActionListener() {
@@ -109,22 +112,22 @@ public class HappyMeal_frm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelContorno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contorno, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sceltaContorni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelBibita, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bibita, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sceltaBibite, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelDessert, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dessert, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sceltaDesserts, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(asporto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(labelPanino, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(panino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sceltaPanini, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(64, 64, 64))
             .addGroup(layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -138,19 +141,19 @@ public class HappyMeal_frm extends javax.swing.JFrame {
                 .addComponent(titolo)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(panino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sceltaPanini, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPanino))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelContorno)
-                    .addComponent(contorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sceltaContorni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelBibita)
-                    .addComponent(bibita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sceltaBibite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dessert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sceltaDesserts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelDessert))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(asporto)
@@ -169,10 +172,10 @@ public class HappyMeal_frm extends javax.swing.JFrame {
             nuovoOrdine.setVisible(true);
             
             HappyMeal x = new HappyMeal(isAsporto);
-            /*x.setPanino(valuePanino);
+            x.setPanino(valuePanino);
             x.setContorno(valueContorno);
-            x.setBibita(valueBibite);
-            x.setDessert(valueDessert);*/
+            x.setBibita(valueBibita);
+            x.setDessert(valueDessert);
             
             this.setVisible(false);
         } catch (Exception ex) {
@@ -180,14 +183,15 @@ public class HappyMeal_frm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
 
-    private void paninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paninoActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_paninoActionPerformed
+    private void sceltaPaniniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPaniniActionPerformed
+        //get selected value from the combobox
+        valuePanino = sceltaPanini.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaPaniniActionPerformed
 
-    private void bibitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibitaActionPerformed
-        
-    }//GEN-LAST:event_bibitaActionPerformed
+    private void sceltaBibiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBibiteActionPerformed
+        //get selected value from the combobox
+        valueBibita = sceltaBibite.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaBibiteActionPerformed
 
     private void asportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asportoActionPerformed
         if (asporto.isSelected()) {
@@ -195,9 +199,15 @@ public class HappyMeal_frm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_asportoActionPerformed
 
-    private void contornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contornoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contornoActionPerformed
+    private void sceltaContorniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaContorniActionPerformed
+        //get selected value from the combobox
+        valueContorno = sceltaContorni.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaContorniActionPerformed
+
+    private void sceltaDessertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaDessertsActionPerformed
+        //get selected value from the combobox
+        valueDessert = sceltaDesserts.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaDessertsActionPerformed
     
     private String[] caricaBibite () {
         String [] bibite = new String [Constants.BIBITE.size()+1];
@@ -243,15 +253,15 @@ public class HappyMeal_frm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungiOrdine;
     private javax.swing.JCheckBox asporto;
-    private javax.swing.JComboBox<String> bibita;
-    private javax.swing.JComboBox<String> contorno;
-    private javax.swing.JComboBox<String> dessert;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelBibita;
     private javax.swing.JLabel labelContorno;
     private javax.swing.JLabel labelDessert;
     private javax.swing.JLabel labelPanino;
-    private javax.swing.JComboBox<String> panino;
+    private javax.swing.JComboBox<String> sceltaBibite;
+    private javax.swing.JComboBox<String> sceltaContorni;
+    private javax.swing.JComboBox<String> sceltaDesserts;
+    private javax.swing.JComboBox<String> sceltaPanini;
     private javax.swing.JLabel titolo;
     // End of variables declaration//GEN-END:variables
 }
