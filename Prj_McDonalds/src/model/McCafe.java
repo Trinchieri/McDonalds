@@ -21,12 +21,12 @@ public class McCafe extends Ordine{
     }
 
     public void setBevanda(String bevanda) {        
-        bevanda = bevanda.toUpperCase();
-        
-        if(bevanda == ""){
+        if("".equals(bevanda)){
             this.bevanda = bevanda;
         }
         else{
+            bevanda = bevanda.toUpperCase();
+            
             for(Map.Entry i: BEVANDE.entrySet()){
                 if(bevanda.equals(i.getKey())){
                     this.bevanda = (String) i.getKey();
@@ -37,12 +37,12 @@ public class McCafe extends Ordine{
     }
 
     public void setPasta(String pasta) {
-        pasta = pasta.toUpperCase();
-        
         if(pasta == ""){
             this.pasta = pasta;
         }
         else {
+            pasta = pasta.toUpperCase();
+            
             for(Map.Entry i: PASTE.entrySet()){
                 if(pasta.equals(i.getKey())){
                     this.pasta = ((String) i.getKey()).toLowerCase();

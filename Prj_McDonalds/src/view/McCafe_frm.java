@@ -12,11 +12,13 @@ import model.McCafe;
 
 public class McCafe_frm extends javax.swing.JFrame {
         
-    String valueBevanda, valuePasta;
+    String valueBevanda = "", valuePasta = "";
     boolean isAsporto;
     
     public McCafe_frm(McDonaldsGUI aThis) {
         initComponents();
+        
+        aggiungiOrdine.setEnabled(false);
         
         sceltaBevande.setModel(new DefaultComboBoxModel<>(caricaBevande()));
         sceltaPaste.setModel(new DefaultComboBoxModel<>(caricaPaste()));
@@ -26,6 +28,7 @@ public class McCafe_frm extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     aThis.go.addOrdine(creaOrdine());
+                    aThis.setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -131,15 +134,7 @@ public class McCafe_frm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
-        try {
-            McDonaldsGUI nuovoOrdine = new McDonaldsGUI();
-
-            nuovoOrdine.setVisible(true);
-            
-            this.setVisible(false);
-        } catch (Exception ex) {
-            Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.setVisible(false);
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
     
     private McCafe creaOrdine(){        
@@ -158,19 +153,25 @@ public class McCafe_frm extends javax.swing.JFrame {
 
     private void sceltaBevandeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBevandeActionPerformed
         //get selected value from the combobox
-        valueBevanda = sceltaBevande.getSelectedItem().toString();
+        if (sceltaBevande.getSelectedItem().toString().equals("-")) valueBevanda = "";
+        else valueBevanda = sceltaBevande.getSelectedItem().toString();
+        
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaBevandeActionPerformed
 
     private void sceltaPasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPasteActionPerformed
         //get selected value from the combobox
-        valuePasta = sceltaPaste.getSelectedItem().toString();
+        if (sceltaPaste.getSelectedItem().toString().equals("-")) valuePasta = "";
+        else valuePasta = sceltaPaste.getSelectedItem().toString();
+        
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaPasteActionPerformed
     
     private String[] caricaBevande () {
         String [] bevande = new String [Constants.BEVANDE.size()+1];
         int c = 0;
         
-        bevande[0] = "select";
+        bevande[0] = "-";
         
         for (Map.Entry i: Constants.BEVANDE.entrySet()) {
             c++;
@@ -184,7 +185,7 @@ public class McCafe_frm extends javax.swing.JFrame {
         String [] paste = new String [Constants.PASTE.size()+1];
         int c = 0;
         
-        paste[0] = "select";
+        paste[0] = "-";
         
         for (Map.Entry i: Constants.PASTE.entrySet()) {
             c++;
@@ -194,7 +195,12 @@ public class McCafe_frm extends javax.swing.JFrame {
         return paste;
     }
     
-
+    private void controlloAggiungiOrdine () {
+        if (!valueBevanda.equals(null) && !valuePasta.equals(null)) {
+            aggiungiOrdine.setEnabled(true);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungiOrdine;
     private javax.swing.JCheckBox asporto;

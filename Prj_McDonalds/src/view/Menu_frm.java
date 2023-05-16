@@ -1,9 +1,24 @@
 package view;
 
-public class Menu_frm extends javax.swing.JFrame {
+import controller.Constants;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import model.HappyMeal;
+import model.McMenu;
 
+public class Menu_frm extends javax.swing.JFrame {
+    private boolean isAsporto;
+    String valuePanino, valuePatate, valueSalsa, valueBibita, valueDessert;
+    
     public Menu_frm() {
         initComponents();
+        
+        sceltaPanini.setModel(new DefaultComboBoxModel<>(caricaPanini()));
+        sceltaPatate.setModel(new DefaultComboBoxModel<>(caricaPatate()));
+        sceltaBibite.setModel(new DefaultComboBoxModel<>(caricaBibite()));
+        sceltaDesserts.setModel(new DefaultComboBoxModel<>(caricaDessert()));
     }
 
     @SuppressWarnings("unchecked")
@@ -31,6 +46,11 @@ public class Menu_frm extends javax.swing.JFrame {
         labelPanino.setText("PANINO:");
 
         aggiungiOrdine.setText("AGGIUNGI ALL'ORDINE");
+        aggiungiOrdine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aggiungiOrdineActionPerformed(evt);
+            }
+        });
 
         asporto.setText("Asporto");
         asporto.addActionListener(new java.awt.event.ActionListener() {
@@ -40,6 +60,11 @@ public class Menu_frm extends javax.swing.JFrame {
         });
 
         sceltaPanini.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaPanini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceltaPaniniActionPerformed(evt);
+            }
+        });
 
         labelPatate.setText("PATATE:");
 
@@ -50,12 +75,32 @@ public class Menu_frm extends javax.swing.JFrame {
         labelDessert.setText("DESSERT:");
 
         sceltaPatate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaPatate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceltaPatateActionPerformed(evt);
+            }
+        });
 
         sceltaSalse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaSalse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceltaSalseActionPerformed(evt);
+            }
+        });
 
         sceltaBibite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaBibite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceltaBibiteActionPerformed(evt);
+            }
+        });
 
         sceltaDesserts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaDesserts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceltaDessertsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,9 +179,110 @@ public class Menu_frm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void asportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asportoActionPerformed
-        // TODO add your handling code here:
+        if (asporto.isSelected()) {
+            this.isAsporto = true;
+        }
     }//GEN-LAST:event_asportoActionPerformed
 
+    private void sceltaPaniniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPaniniActionPerformed
+        //get selected value from the combobox
+        valuePanino = sceltaPanini.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaPaniniActionPerformed
+
+    private void sceltaPatateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPatateActionPerformed
+        //get selected value from the combobox
+        valuePatate = sceltaPatate.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaPatateActionPerformed
+
+    private void sceltaSalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaSalseActionPerformed
+        //get selected value from the combobox
+        valueSalsa = sceltaSalse.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaSalseActionPerformed
+
+    private void sceltaBibiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBibiteActionPerformed
+        //get selected value from the combobox
+        valueBibita = sceltaBibite.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaBibiteActionPerformed
+
+    private void sceltaDessertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaDessertsActionPerformed
+        //get selected value from the combobox
+        valueDessert = sceltaDesserts.getSelectedItem().toString();
+    }//GEN-LAST:event_sceltaDessertsActionPerformed
+
+    private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
+        try {
+            McDonaldsGUI nuovoOrdine = new McDonaldsGUI();
+            
+            nuovoOrdine.setVisible(true);
+            
+            McMenu x = new McMenu(isAsporto);
+            x.setPanino(valuePanino);
+            x.setPatatine(valuePatate);
+            x.setBibita(valueBibita);
+            x.setDessert(valueDessert);
+            
+            this.setVisible(false);
+        } catch (Exception ex) {
+            Logger.getLogger(HappyMeal_frm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_aggiungiOrdineActionPerformed
+    
+    private String[] caricaPanini () {
+        String [] panini = new String [Constants.BEVANDE.size()+1];
+        int c = 0;
+        
+        panini[0] = "select";
+        
+        for (Map.Entry i: Constants.BEVANDE.entrySet()) {
+            c++;
+            panini[c] = ((String) i.getKey()).toLowerCase();  
+        } 
+        
+        return panini;
+    }
+    
+    private String[] caricaPatate () {
+        String [] patate = new String [Constants.PATATE.size()+1];
+        int c = 0;
+        
+        patate[0] = "select";
+        
+        for (Map.Entry i: Constants.PATATE.entrySet()) {
+            c++;
+            patate[c] = ((String) i.getKey()).toLowerCase();  
+        } 
+        
+        return patate;
+    }
+    
+    private String[] caricaBibite () {
+        String [] bibite = new String [Constants.BIBITE.size()+1];
+        int c = 0;
+        
+        bibite[0] = "select";
+        
+        for (Map.Entry i: Constants.BIBITE.entrySet()) {
+            c++;
+            bibite[c] = ((String) i.getKey()).toLowerCase();  
+        } 
+        
+        return bibite;
+    }
+    
+    private String[] caricaDessert () {
+        String [] desserts = new String [Constants.DESSERTS.size()+1];
+        int c = 0;
+        
+        desserts[0] = "select";
+        
+        for (Map.Entry i: Constants.DESSERTS.entrySet()) {
+            c++;
+            desserts[c] = ((String) i.getKey()).toLowerCase();  
+        } 
+        
+        return desserts;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

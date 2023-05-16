@@ -133,11 +133,10 @@
     <Component class="javax.swing.JComboBox" name="sceltaPanini">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="select"/>
-            <StringItem index="1" value="toast"/>
-            <StringItem index="2" value="hamburger"/>
-            <StringItem index="3" value="chickenburger"/>
+          <StringArray count="3">
+            <StringItem index="0" value="toast"/>
+            <StringItem index="1" value="hamburger"/>
+            <StringItem index="2" value="chickenburger"/>
           </StringArray>
         </Property>
       </Properties>
@@ -161,10 +160,9 @@
     <Component class="javax.swing.JComboBox" name="sceltaContorni">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="select"/>
-            <StringItem index="1" value="patatine"/>
-            <StringItem index="2" value="carotine baby"/>
+          <StringArray count="2">
+            <StringItem index="0" value="patatine"/>
+            <StringItem index="1" value="carotine baby"/>
           </StringArray>
         </Property>
       </Properties>
@@ -201,12 +199,11 @@
     <Component class="javax.swing.JComboBox" name="sceltaDesserts">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="select"/>
-            <StringItem index="1" value="mela"/>
-            <StringItem index="2" value="ananas"/>
-            <StringItem index="3" value="formaggio"/>
-            <StringItem index="4" value="actimel"/>
+          <StringArray count="4">
+            <StringItem index="0" value="mela"/>
+            <StringItem index="1" value="ananas"/>
+            <StringItem index="2" value="formaggio"/>
+            <StringItem index="3" value="actimel"/>
           </StringArray>
         </Property>
       </Properties>

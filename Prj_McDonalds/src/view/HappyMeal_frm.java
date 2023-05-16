@@ -11,11 +11,13 @@ import javax.swing.DefaultComboBoxModel;
 import model.HappyMeal;
 
 public class HappyMeal_frm extends javax.swing.JFrame {
-    private String valuePanino, valueContorno, valueBibita, valueDessert;
+    private String valuePanino = "", valueContorno = "", valueBibita = "", valueDessert = "";
     private boolean isAsporto;
     
-    public HappyMeal_frm(McDonaldsGUI gui) {
+    public HappyMeal_frm(McDonaldsGUI aThis) {
         initComponents();
+        
+        aggiungiOrdine.setEnabled(false);
         
         sceltaBibite.setModel(new DefaultComboBoxModel<>(caricaBibite()));
         
@@ -23,7 +25,8 @@ public class HappyMeal_frm extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    gui.go.addOrdine(creaOrdine());
+                    aThis.go.addOrdine(creaOrdine());
+                     aThis.setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -70,7 +73,7 @@ public class HappyMeal_frm extends javax.swing.JFrame {
             }
         });
 
-        sceltaPanini.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "toast", "hamburger", "chickenburger" }));
+        sceltaPanini.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "toast", "hamburger", "chickenburger" }));
         sceltaPanini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sceltaPaniniActionPerformed(evt);
@@ -81,7 +84,7 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
         labelContorno.setText("CONTORNO:");
 
-        sceltaContorni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "patatine", "carotine baby" }));
+        sceltaContorni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "patatine", "carotine baby" }));
         sceltaContorni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sceltaContorniActionPerformed(evt);
@@ -98,7 +101,7 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
         labelDessert.setText("DESSERT:");
 
-        sceltaDesserts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "mela", "ananas", "formaggio", "actimel" }));
+        sceltaDesserts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "mela", "ananas", "formaggio", "actimel" }));
         sceltaDesserts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sceltaDessertsActionPerformed(evt);
@@ -191,25 +194,23 @@ public class HappyMeal_frm extends javax.swing.JFrame {
     }
     
     private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
-        try {
-            McDonaldsGUI nuovoOrdine = new McDonaldsGUI();
-            
-            nuovoOrdine.setVisible(true);
-
-            this.setVisible(false);
-        } catch (Exception ex) {
-            Logger.getLogger(HappyMeal_frm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.setVisible(false);
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
 
     private void sceltaPaniniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPaniniActionPerformed
         //get selected value from the combobox
-        valuePanino = sceltaPanini.getSelectedItem().toString();
+        if (sceltaPanini.getSelectedItem().toString().equals("-")) valuePanino = "";
+        else valuePanino = sceltaPanini.getSelectedItem().toString();
+        
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaPaniniActionPerformed
 
     private void sceltaBibiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBibiteActionPerformed
         //get selected value from the combobox
-        valueBibita = sceltaBibite.getSelectedItem().toString();
+        if (sceltaBibite.getSelectedItem().toString().equals("-")) valueBibita = "";
+        else valueBibita = sceltaBibite.getSelectedItem().toString();
+        
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaBibiteActionPerformed
 
     private void asportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asportoActionPerformed
@@ -220,26 +221,36 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
     private void sceltaContorniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaContorniActionPerformed
         //get selected value from the combobox
-        valueContorno = sceltaContorni.getSelectedItem().toString();
+        if (sceltaContorni.getSelectedItem().toString().equals("-")) valueContorno = "";
+        else valueContorno = sceltaContorni.getSelectedItem().toString();
+        
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaContorniActionPerformed
 
     private void sceltaDessertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaDessertsActionPerformed
         //get selected value from the combobox
-        valueDessert = sceltaDesserts.getSelectedItem().toString();
+        if (sceltaDesserts.getSelectedItem().toString().equals("-")) valueDessert = "";
+        else valueDessert = sceltaDesserts.getSelectedItem().toString();
+        
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaDessertsActionPerformed
     
     private String[] caricaBibite () {
         String [] bibite = new String [Constants.BIBITE.size()+1];
         int c = 0;
         
-        bibite[0] = "select";
-        
         for (Map.Entry i: Constants.BIBITE.entrySet()) {
+            bibite[c] = ((String) i.getKey()).toLowerCase();
             c++;
-            bibite[c] = ((String) i.getKey()).toLowerCase();  
         } 
         
         return bibite;
+    }
+    
+    private void controlloAggiungiOrdine () {
+        if (!valuePanino.equals("") && !valueContorno.equals("") && !valueBibita.equals("") && !valueDessert.equals("")) {
+            aggiungiOrdine.setEnabled(true);
+        }
     }
     
     public static void main(String args[]) {
