@@ -1,17 +1,24 @@
 package view;
 
 import controller.GestoreOrdini;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import model.Ordine;
 
 public class CheckOrdine extends javax.swing.JFrame {
 
-    public CheckOrdine(GestoreOrdini g) {
+    public CheckOrdine(McDonaldsGUI aThis) {
         initComponents();
         //this.getContentPane().setBackground(new java.awt.Color(59, 173, 68));
-        listaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(g)));
+        listaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(aThis.go)));
+        
+        indietro.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                aThis.setVisible(true);
+            }
+        });
     }
 
     private String[] caricaOrdini (GestoreOrdini g) {
@@ -34,7 +41,7 @@ public class CheckOrdine extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        indietro = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaOrdini = new javax.swing.JList<>();
         jSeparator1 = new javax.swing.JSeparator();
@@ -51,10 +58,10 @@ public class CheckOrdine extends javax.swing.JFrame {
 
         jButton1.setText("CONTINUA");
 
-        jButton2.setText("TORNA INDIETRO");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        indietro.setText("TORNA INDIETRO");
+        indietro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                indietroActionPerformed(evt);
             }
         });
 
@@ -72,7 +79,7 @@ public class CheckOrdine extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(indietro, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
@@ -112,22 +119,16 @@ public class CheckOrdine extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(indietro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            McDonaldsGUI m = new McDonaldsGUI(); 
-            m.setVisible(true);
-            this.setVisible(false);
-        } catch (Exception ex) {
-            Logger.getLogger(CheckOrdine.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
+        
+    }//GEN-LAST:event_indietroActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -155,6 +156,7 @@ public class CheckOrdine extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CheckOrdine(null).setVisible(true);
             }
@@ -162,8 +164,8 @@ public class CheckOrdine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton indietro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

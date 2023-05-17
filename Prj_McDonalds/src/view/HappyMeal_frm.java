@@ -26,7 +26,7 @@ public class HappyMeal_frm extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     aThis.go.addOrdine(creaOrdine());
-                     aThis.setVisible(true);
+                    aThis.setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
                 }

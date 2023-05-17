@@ -1,6 +1,7 @@
 package view;
 
 import controller.GestoreOrdini;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,16 +70,18 @@ public class McDonaldsGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cafe, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                .addGap(36, 36, 36)
-                .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cafe, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addGap(36, 36, 36)
+                        .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(checkOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)))
                 .addGap(38, 38, 38)
                 .addComponent(happymeal, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(checkOrdine)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,18 +91,22 @@ public class McDonaldsGUI extends javax.swing.JFrame {
                     .addComponent(cafe, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(happymeal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(36, 36, 36)
                 .addComponent(checkOrdine)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
-        Menu_frm menuGUI = new Menu_frm();
-        menuGUI.setVisible(true);
-        this.setVisible(false);
+        try {
+            Menu_frm menuGUI = new Menu_frm(this);
+            menuGUI.setVisible(true);
+            this.setVisible(false);
+        } catch (IOException ex) {
+            Logger.getLogger(McDonaldsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menuActionPerformed
     
     private void cafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeActionPerformed
@@ -115,7 +122,7 @@ public class McDonaldsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_happymealActionPerformed
 
     private void checkOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOrdineActionPerformed
-        CheckOrdine checkGUI = new CheckOrdine(this.go);
+        CheckOrdine checkGUI = new CheckOrdine(this);
         checkGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_checkOrdineActionPerformed

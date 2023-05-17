@@ -41,7 +41,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="133" max="-2" attributes="0"/>
+              <Component id="indietro" min="-2" pref="133" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="133" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                  <Component id="indietro" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -111,12 +111,12 @@
         <Property name="text" type="java.lang.String" value="CONTINUA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="indietro">
       <Properties>
         <Property name="text" type="java.lang.String" value="TORNA INDIETRO"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="indietroActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

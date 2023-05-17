@@ -1,26 +1,48 @@
 package view;
 
 import controller.Constants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import model.HappyMeal;
 import model.McMenu;
 
 public class Menu_frm extends javax.swing.JFrame {
     private boolean isAsporto;
     String valuePanino, valuePatate, valueSalsa, valueBibita, valueDessert;
     
-    public Menu_frm() {
+    public Menu_frm(McDonaldsGUI aThis) throws IOException {
         initComponents();
+        
+        sceltaSalse.setEnabled(false);
+        
+        aggiungiOrdine.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    aThis.go.addOrdine(creaOrdine());
+                    aThis.setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Menu_frm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
         
         sceltaPanini.setModel(new DefaultComboBoxModel<>(caricaPanini()));
         sceltaPatate.setModel(new DefaultComboBoxModel<>(caricaPatate()));
+        sceltaSalse.setModel(new DefaultComboBoxModel<>(caricaSalse()));
         sceltaBibite.setModel(new DefaultComboBoxModel<>(caricaBibite()));
         sceltaDesserts.setModel(new DefaultComboBoxModel<>(caricaDessert()));
     }
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -115,28 +137,26 @@ public class Menu_frm extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(asporto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(labelDessert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                                    .addComponent(labelSalsa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(labelBibita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(labelPatate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelPanino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(labelPanino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelDessert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(sceltaPanini, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(106, 106, 106)
+                                        .addGap(93, 93, 93)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(sceltaDesserts, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(sceltaBibite, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(sceltaPatate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(asporto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelSalsa, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(126, 126, 126)
-                                .addComponent(sceltaSalse, 0, 120, Short.MAX_VALUE)))))
+                                            .addComponent(sceltaPatate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(sceltaSalse, 0, 120, Short.MAX_VALUE))))))))
                 .addGap(68, 68, 68))
             .addGroup(layout.createSequentialGroup()
                 .addGap(114, 114, 114)
@@ -187,65 +207,83 @@ public class Menu_frm extends javax.swing.JFrame {
     private void sceltaPaniniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPaniniActionPerformed
         //get selected value from the combobox
         valuePanino = sceltaPanini.getSelectedItem().toString();
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaPaniniActionPerformed
 
     private void sceltaPatateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPatateActionPerformed
         //get selected value from the combobox
-        valuePatate = sceltaPatate.getSelectedItem().toString();
+        if(!sceltaPatate.getSelectedItem().toString().equals("-")){
+            valuePatate = sceltaPatate.getSelectedItem().toString();
+            if (valuePatate.equals("classiche")) sceltaSalse.setEnabled(true);
+            else sceltaSalse.setEnabled(false);   
+        }
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaPatateActionPerformed
 
     private void sceltaSalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaSalseActionPerformed
         //get selected value from the combobox
         valueSalsa = sceltaSalse.getSelectedItem().toString();
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaSalseActionPerformed
 
     private void sceltaBibiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBibiteActionPerformed
         //get selected value from the combobox
-        valueBibita = sceltaBibite.getSelectedItem().toString();
+        if(!sceltaBibite.getSelectedItem().toString().equals("-"))valueBibita = sceltaBibite.getSelectedItem().toString();
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaBibiteActionPerformed
 
     private void sceltaDessertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaDessertsActionPerformed
         //get selected value from the combobox
-        valueDessert = sceltaDesserts.getSelectedItem().toString();
+        if(!sceltaDesserts.getSelectedItem().toString().equals("-"))valueDessert = sceltaDesserts.getSelectedItem().toString();
+        controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaDessertsActionPerformed
 
     private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
-        try {
-            McDonaldsGUI nuovoOrdine = new McDonaldsGUI();
-            
-            nuovoOrdine.setVisible(true);
-            
-            McMenu x = new McMenu(isAsporto);
-            x.setPanino(valuePanino);
-            x.setPatatine(valuePatate);
-            x.setBibita(valueBibita);
-            x.setDessert(valueDessert);
-            
-            this.setVisible(false);
-        } catch (Exception ex) {
-            Logger.getLogger(HappyMeal_frm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.setVisible(false);
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
     
-    private String[] caricaPanini () {
-        String [] panini = new String [Constants.BEVANDE.size()+1];
+    private String[] caricaPanini () throws FileNotFoundException, IOException {
+        BufferedReader in = new BufferedReader(new FileReader("panini.csv"));
+        String line;
+        ArrayList <String> nPanini = new ArrayList<String>();
+
+        while ((line = in.readLine()) != null) {
+           String[] info = line.split(",");
+           nPanini.add(info[0]);
+        }
+        
+        String[] panini = new String[nPanini.size()+1];
         int c = 0;
         
-        panini[0] = "select";
+        panini[c] = "-";
         
-        for (Map.Entry i: Constants.BEVANDE.entrySet()) {
+        for(String s:nPanini){
             c++;
-            panini[c] = ((String) i.getKey()).toLowerCase();  
-        } 
+            panini[c] = s;
+        }
         
         return panini;
+    }
+    
+    private String[] caricaSalse(){
+        String [] salse = new String [Constants.SALSE.size()+1];
+        int c = 0;
+        
+        salse[0] = "-";
+        
+        for (Map.Entry i: Constants.SALSE.entrySet()) {
+            c++;
+            salse[c] = ((String) i.getKey()).toLowerCase();  
+        } 
+        
+        return salse;
     }
     
     private String[] caricaPatate () {
         String [] patate = new String [Constants.PATATE.size()+1];
         int c = 0;
         
-        patate[0] = "select";
+        patate[0] = "-";
         
         for (Map.Entry i: Constants.PATATE.entrySet()) {
             c++;
@@ -259,7 +297,7 @@ public class Menu_frm extends javax.swing.JFrame {
         String [] bibite = new String [Constants.BIBITE.size()+1];
         int c = 0;
         
-        bibite[0] = "select";
+        bibite[0] = "-";
         
         for (Map.Entry i: Constants.BIBITE.entrySet()) {
             c++;
@@ -273,7 +311,7 @@ public class Menu_frm extends javax.swing.JFrame {
         String [] desserts = new String [Constants.DESSERTS.size()+1];
         int c = 0;
         
-        desserts[0] = "select";
+        desserts[0] = "-";
         
         for (Map.Entry i: Constants.DESSERTS.entrySet()) {
             c++;
@@ -281,6 +319,24 @@ public class Menu_frm extends javax.swing.JFrame {
         } 
         
         return desserts;
+    }
+    
+    private McMenu creaOrdine() throws Exception{
+        McMenu x = new McMenu(isAsporto);
+        x.setPanino(valuePanino);
+        if(valuePatate.equals("classiche")) x.setPatatine(valuePatate,valueSalsa);
+        else x.setPatatine(valuePatate);
+        x.setBibita(valueBibita);
+        x.setDessert(valueDessert);
+        
+        return x;
+    }
+    
+    private void controlloAggiungiOrdine () {
+        if (!valueBibita.equals("-") && !valueDessert.equals("-") && !valuePanino.equals("-") && !valuePatate.equals("-")) {
+            aggiungiOrdine.setEnabled(true);
+        }
+        else aggiungiOrdine.setEnabled(false);
     }
     
     public static void main(String args[]) {
@@ -310,7 +366,11 @@ public class Menu_frm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_frm().setVisible(true);
+                try {
+                    new Menu_frm(null).setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Menu_frm.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
