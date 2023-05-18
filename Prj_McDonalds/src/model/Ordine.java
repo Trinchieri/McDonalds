@@ -35,4 +35,6 @@ public abstract class Ordine {
     public String toString () {
         return dataOra;
     }
+    
+    public abstract String stampaGUI();
 }

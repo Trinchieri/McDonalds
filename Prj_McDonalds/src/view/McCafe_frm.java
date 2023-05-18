@@ -15,7 +15,7 @@ public class McCafe_frm extends javax.swing.JFrame {
     String valueBevanda = "", valuePasta = "";
     boolean isAsporto;
     
-    public McCafe_frm(McDonaldsGUI aThis) {
+    public McCafe_frm(Ordine_frm aThis) {
         initComponents();
         
         aggiungiOrdine.setEnabled(false);

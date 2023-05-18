@@ -44,6 +44,8 @@ public class Main {
             System.out.println(i);
             System.out.println("PREZZO:" + i.calcolaPrezzo() + "\n");
         }
+        
+        System.out.println("\nPREZZO TOTALE: " + d.calcolaPrezzoTotale());
     }
     
     private static void nuovoOrdine (GestoreOrdini d) throws IOException, Exception {

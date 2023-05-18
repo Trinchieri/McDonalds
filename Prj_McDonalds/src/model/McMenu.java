@@ -66,4 +66,13 @@ public class McMenu extends HappyMenu{
         
         return prezzo;
     } 
+
+    @Override
+    public String stampaGUI() {
+        String x = "- MENU [ " + this.panino.getNome() + ", " + this.patatine + ", " + this.bibita;
+        
+        if (!this.dessert.equals("")) x += ", " + this.dessert;
+        
+        return x + " ]";
+    }
 }

@@ -14,7 +14,7 @@ public class HappyMeal_frm extends javax.swing.JFrame {
     private String valuePanino = "", valueContorno = "", valueBibita = "", valueDessert = "";
     private boolean isAsporto;
     
-    public HappyMeal_frm(McDonaldsGUI aThis) {
+    public HappyMeal_frm(Ordine_frm aThis) {
         initComponents();
         
         aggiungiOrdine.setEnabled(false);
@@ -199,16 +199,14 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
     private void sceltaPaniniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPaniniActionPerformed
         //get selected value from the combobox
-        if (sceltaPanini.getSelectedItem().toString().equals("-")) valuePanino = "";
-        else valuePanino = sceltaPanini.getSelectedItem().toString();
+        valuePanino = sceltaPanini.getSelectedItem().toString();
         
         controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaPaniniActionPerformed
 
     private void sceltaBibiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBibiteActionPerformed
         //get selected value from the combobox
-        if (sceltaBibite.getSelectedItem().toString().equals("-")) valueBibita = "";
-        else valueBibita = sceltaBibite.getSelectedItem().toString();
+        valueBibita = sceltaBibite.getSelectedItem().toString();
         
         controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaBibiteActionPerformed
@@ -221,22 +219,20 @@ public class HappyMeal_frm extends javax.swing.JFrame {
 
     private void sceltaContorniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaContorniActionPerformed
         //get selected value from the combobox
-        if (sceltaContorni.getSelectedItem().toString().equals("-")) valueContorno = "";
-        else valueContorno = sceltaContorni.getSelectedItem().toString();
+        valueContorno = sceltaContorni.getSelectedItem().toString();
         
         controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaContorniActionPerformed
 
     private void sceltaDessertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaDessertsActionPerformed
         //get selected value from the combobox
-        if (sceltaDesserts.getSelectedItem().toString().equals("-")) valueDessert = "";
-        else valueDessert = sceltaDesserts.getSelectedItem().toString();
+        valueDessert = sceltaDesserts.getSelectedItem().toString();
         
         controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaDessertsActionPerformed
     
     private String[] caricaBibite () {
-        String [] bibite = new String [Constants.BIBITE.size()+1];
+        String [] bibite = new String [Constants.BIBITE.size()];
         int c = 0;
         
         for (Map.Entry i: Constants.BIBITE.entrySet()) {

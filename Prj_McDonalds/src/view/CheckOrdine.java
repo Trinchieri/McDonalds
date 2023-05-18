@@ -8,7 +8,7 @@ import model.Ordine;
 
 public class CheckOrdine extends javax.swing.JFrame {
 
-    public CheckOrdine(McDonaldsGUI aThis) {
+    public CheckOrdine(Ordine_frm aThis) {
         initComponents();
         //this.getContentPane().setBackground(new java.awt.Color(59, 173, 68));
         listaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(aThis.go)));
@@ -19,6 +19,9 @@ public class CheckOrdine extends javax.swing.JFrame {
                 aThis.setVisible(true);
             }
         });
+        
+        prezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
+        
     }
 
     private String[] caricaOrdini (GestoreOrdini g) {
@@ -26,7 +29,7 @@ public class CheckOrdine extends javax.swing.JFrame {
         int i=0;
         
         for(Ordine x:g.getOrdini()){
-            ordini[i] =x.toString();
+            ordini[i] =x.stampaGUI();
             i++;
         }
         
@@ -39,24 +42,29 @@ public class CheckOrdine extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        titolo = new javax.swing.JLabel();
+        continua = new javax.swing.JButton();
         indietro = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        stampaOrdine = new javax.swing.JScrollPane();
         listaOrdini = new javax.swing.JList<>();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelPrezzo = new javax.swing.JLabel();
+        prezzo = new javax.swing.JLabel();
 
         jScrollPane2.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 31)); // NOI18N
-        jLabel1.setText("Check Ordine");
+        titolo.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 31)); // NOI18N
+        titolo.setText("Check Ordine");
 
-        jButton1.setText("CONTINUA");
+        continua.setText("CONTINUA");
+        continua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuaActionPerformed(evt);
+            }
+        });
 
         indietro.setText("TORNA INDIETRO");
         indietro.addActionListener(new java.awt.event.ActionListener() {
@@ -65,13 +73,13 @@ public class CheckOrdine extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(listaOrdini);
+        stampaOrdine.setViewportView(listaOrdini);
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
-        jLabel2.setText("PREZZO");
+        labelPrezzo.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        labelPrezzo.setText("PREZZO");
 
-        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
-        jLabel3.setText("€ 0.00");
+        prezzo.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        prezzo.setText("€ 0.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,7 +89,7 @@ public class CheckOrdine extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(indietro, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(continua, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
@@ -89,36 +97,36 @@ public class CheckOrdine extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jLabel2)
+                .addComponent(labelPrezzo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(prezzo)
                 .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(stampaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(jLabel1)))
+                        .addComponent(titolo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(titolo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(stampaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(labelPrezzo)
+                    .addComponent(prezzo))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(continua, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(indietro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
@@ -127,9 +135,15 @@ public class CheckOrdine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
-        
+        this.setVisible(false);
     }//GEN-LAST:event_indietroActionPerformed
 
+    private void continuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuaActionPerformed
+        this.setVisible(false);
+        Scontrino_frm scontrino = new Scontrino_frm();
+        scontrino.setVisible(true);
+    }//GEN-LAST:event_continuaActionPerformed
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -164,15 +178,15 @@ public class CheckOrdine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton continua;
     private javax.swing.JButton indietro;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel labelPrezzo;
     private javax.swing.JList<String> listaOrdini;
+    private javax.swing.JLabel prezzo;
+    private javax.swing.JScrollPane stampaOrdine;
+    private javax.swing.JLabel titolo;
     // End of variables declaration//GEN-END:variables
 }

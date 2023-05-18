@@ -1,2 +1,1 @@
-05.17.2023, 05.51.22 HappyMeal [ Hamburger, null, fanta orange, mela, Bertino ]
-05.17.2023, 05.51.26 McCafe [ caffe americano, croissant vuoto ]
+05.18.2023, 05.01.39 Menu [ Gran Crispy McBacon, Patatine [ classiche], lipton ice tea pesca ]

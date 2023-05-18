@@ -16,13 +16,15 @@ public class Salsa {
     };
     
     public Salsa (String salsa) throws Exception {
-        salsa=salsa.toUpperCase();
-        
-        for(Map.Entry i: SALSE.entrySet()){
-            if(i.getKey().equals(salsa)){
-                this.tipiSalse.replace((String) i.getValue(), true);
+        if (!salsa.equals("")) {
+            salsa=salsa.toUpperCase();
+            
+            for(Map.Entry i: SALSE.entrySet()){
+                if(i.getKey().equals(salsa)){
+                    this.tipiSalse.replace((String) i.getValue(), true);
+                }
             }
-        }
+        }  
     }
     
     public ArrayList<String> getSalse(){
@@ -37,7 +39,7 @@ public class Salsa {
     
     @Override
     public String toString(){
-        String x = "Salse: ";
+        String x = "";
         
         for(Map.Entry i : this.tipiSalse.entrySet()){
             if(i.getValue().equals(true)) x += i.getKey() + ", ";

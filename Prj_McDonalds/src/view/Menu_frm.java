@@ -1,6 +1,7 @@
 package view;
 
 import controller.Constants;
+import controller.GestorePanini;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -13,14 +14,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import model.McMenu;
+import model.Panino;
 
 public class Menu_frm extends javax.swing.JFrame {
     private boolean isAsporto;
-    String valuePanino, valuePatate, valueSalsa, valueBibita, valueDessert;
+    String valuePanino = "", valuePatate = "", valueSalsa = "", valueBibita = "", valueDessert = "";
+    GestorePanini gp = new GestorePanini();
     
-    public Menu_frm(McDonaldsGUI aThis) throws IOException {
+    public Menu_frm(Ordine_frm aThis) throws IOException {
         initComponents();
         
+        aggiungiOrdine.setEnabled(false);
         sceltaSalse.setEnabled(false);
         
         aggiungiOrdine.addActionListener(new ActionListener(){
@@ -212,54 +216,44 @@ public class Menu_frm extends javax.swing.JFrame {
 
     private void sceltaPatateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaPatateActionPerformed
         //get selected value from the combobox
-        if(!sceltaPatate.getSelectedItem().toString().equals("-")){
-            valuePatate = sceltaPatate.getSelectedItem().toString();
-            if (valuePatate.equals("classiche")) sceltaSalse.setEnabled(true);
-            else sceltaSalse.setEnabled(false);   
-        }
+        valuePatate = sceltaPatate.getSelectedItem().toString();
+        if (valuePatate.equals("classiche")) sceltaSalse.setEnabled(true);
+        else sceltaSalse.setEnabled(false);   
+        
         controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaPatateActionPerformed
 
     private void sceltaSalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaSalseActionPerformed
         //get selected value from the combobox
-        valueSalsa = sceltaSalse.getSelectedItem().toString();
-        controlloAggiungiOrdine();
+        if (sceltaSalse.getSelectedItem().toString().equals("-")){
+            valueSalsa = "";
+        }
+        else valueSalsa = sceltaSalse.getSelectedItem().toString();
     }//GEN-LAST:event_sceltaSalseActionPerformed
 
     private void sceltaBibiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBibiteActionPerformed
         //get selected value from the combobox
-        if(!sceltaBibite.getSelectedItem().toString().equals("-"))valueBibita = sceltaBibite.getSelectedItem().toString();
+        valueBibita = sceltaBibite.getSelectedItem().toString();
         controlloAggiungiOrdine();
     }//GEN-LAST:event_sceltaBibiteActionPerformed
 
     private void sceltaDessertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaDessertsActionPerformed
         //get selected value from the combobox
         if(!sceltaDesserts.getSelectedItem().toString().equals("-"))valueDessert = sceltaDesserts.getSelectedItem().toString();
-        controlloAggiungiOrdine();
+        else valueDessert = "";
     }//GEN-LAST:event_sceltaDessertsActionPerformed
 
     private void aggiungiOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiOrdineActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
     
-    private String[] caricaPanini () throws FileNotFoundException, IOException {
-        BufferedReader in = new BufferedReader(new FileReader("panini.csv"));
-        String line;
-        ArrayList <String> nPanini = new ArrayList<String>();
-
-        while ((line = in.readLine()) != null) {
-           String[] info = line.split(",");
-           nPanini.add(info[0]);
-        }
-        
-        String[] panini = new String[nPanini.size()+1];
+    private String[] caricaPanini () throws FileNotFoundException, IOException {        
+        String[] panini = new String[gp.getPanini().size()];
         int c = 0;
         
-        panini[c] = "-";
-        
-        for(String s:nPanini){
+        for(Panino s: gp.getPanini()){
+            panini[c] = s.getNome();
             c++;
-            panini[c] = s;
         }
         
         return panini;
@@ -280,28 +274,24 @@ public class Menu_frm extends javax.swing.JFrame {
     }
     
     private String[] caricaPatate () {
-        String [] patate = new String [Constants.PATATE.size()+1];
+        String [] patate = new String [Constants.PATATE.size()];
         int c = 0;
         
-        patate[0] = "-";
-        
         for (Map.Entry i: Constants.PATATE.entrySet()) {
+            patate[c] = ((String) i.getKey()).toLowerCase();
             c++;
-            patate[c] = ((String) i.getKey()).toLowerCase();  
         } 
         
         return patate;
     }
     
     private String[] caricaBibite () {
-        String [] bibite = new String [Constants.BIBITE.size()+1];
+        String [] bibite = new String [Constants.BIBITE.size()];
         int c = 0;
         
-        bibite[0] = "-";
-        
         for (Map.Entry i: Constants.BIBITE.entrySet()) {
+            bibite[c] = ((String) i.getKey()).toLowerCase();
             c++;
-            bibite[c] = ((String) i.getKey()).toLowerCase();  
         } 
         
         return bibite;
@@ -324,8 +314,13 @@ public class Menu_frm extends javax.swing.JFrame {
     private McMenu creaOrdine() throws Exception{
         McMenu x = new McMenu(isAsporto);
         x.setPanino(valuePanino);
+        
         if(valuePatate.equals("classiche")) x.setPatatine(valuePatate,valueSalsa);
-        else x.setPatatine(valuePatate);
+        else {
+            System.out.println(valuePatate);
+            x.setPatatine(valuePatate);
+        }
+        
         x.setBibita(valueBibita);
         x.setDessert(valueDessert);
         
@@ -333,10 +328,10 @@ public class Menu_frm extends javax.swing.JFrame {
     }
     
     private void controlloAggiungiOrdine () {
-        if (!valueBibita.equals("-") && !valueDessert.equals("-") && !valuePanino.equals("-") && !valuePatate.equals("-")) {
+        if (!valueBibita.equals("") && !valuePanino.equals("") && !valuePatate.equals("")) {
             aggiungiOrdine.setEnabled(true);
         }
-        else aggiungiOrdine.setEnabled(false);
+        //else aggiungiOrdine.setEnabled(false);
     }
     
     public static void main(String args[]) {

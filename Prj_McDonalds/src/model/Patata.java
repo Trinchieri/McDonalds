@@ -12,7 +12,7 @@ public class Patata {
         
         for(Map.Entry i: PATATE.entrySet()){
             if(t.equals(i.getKey())){
-                this.tipo = (String) i.getValue();
+                this.tipo = ((String) i.getKey()).toLowerCase();
             }
         }
     }
@@ -22,7 +22,7 @@ public class Patata {
        
         for(Map.Entry i: PATATE.entrySet()){
             if(t.equals(i.getKey())){
-                this.tipo = (String) i.getKey();
+                this.tipo = ((String) i.getKey()).toLowerCase();
                 if(i.getKey().equals("CLASSICHE")){
                     this.salsa = new Salsa(salsa);    
                 }
@@ -42,10 +42,10 @@ public class Patata {
     public String toString(){
         String x = "Patatine [ "+this.tipo;
         
-        if(!this.salsa.equals(null)){
+        if(!this.salsa.equals(null) && !this.salsa.toString().equals("")){
             x += ", "+this.salsa;
         }
         
-        return x + "]";
+        return x + " ]";
     }
 }

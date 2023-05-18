@@ -63,6 +63,16 @@ public class McCafe extends Ordine{
         return x + " ]";
     }
     
+    public String stampaGUI () {
+        String x = "- CAFE [ ";
+        
+        if (!bevanda.equals("")) x += this.bevanda;
+        
+        if (!pasta.equals("")) x += ", " + this.pasta;
+        
+        return x + " ]";
+    }
+    
     @Override
     public double calcolaPrezzo () {
         double prezzo = 0;

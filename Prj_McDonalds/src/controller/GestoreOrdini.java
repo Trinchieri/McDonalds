@@ -12,30 +12,6 @@ public class GestoreOrdini {
     
     public GestoreOrdini () throws FileNotFoundException, IOException, Exception {
         GestorePanini gPanini = new GestorePanini();
-        
-        /*BufferedReader br = new BufferedReader (new FileReader("ordini.csv"));
-        String line;
-        
-        while ((line = br.readLine()) != null) {
-            String info[] = line.split(",");
-            
-            switch (info[0]) {
-                case "McCafe": {
-                    ordini.add(new McCafe(parseBoolean(info[3]), info[1], info[2]));
-                    break;
-                }
-                
-                case "HappyMeal": {
-                    ordini.add(new HappyMeal(parseBoolean(info[5]), info[1], info[2], info[3], info[4]));
-                    break;
-                }
-                
-                case "McMenu": {
-                    ordini.add(new McMenu(parseBoolean(info[6]), info[1], info[2], info[3], info[4], info[5]));
-                    break;
-                }        
-            }
-        }*/
     }
     
     public void addOrdine (Ordine o) throws IOException {
@@ -56,5 +32,15 @@ public class GestoreOrdini {
     
     public ArrayList<Ordine> getOrdini() {
         return ordini;
+    }
+    
+    public double calcolaPrezzoTotale () {
+        double prezzoTotale = 0;
+        
+        for (Ordine i: ordini) {
+            prezzoTotale += i.calcolaPrezzo();
+        }
+        
+        return prezzoTotale;
     }
 }

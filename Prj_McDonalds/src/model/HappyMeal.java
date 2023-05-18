@@ -70,4 +70,9 @@ public class HappyMeal extends HappyMenu{
     public double calcolaPrezzo() {
         return 5.20;
     }
+
+    @Override
+    public String stampaGUI() {
+       return "- HAPPYMEAL [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bibita + ", " + this.dessert + " ]";
+    }
 }
