@@ -41,6 +41,6 @@ public class GestoreOrdini {
             prezzoTotale += i.calcolaPrezzo();
         }
         
-        return prezzoTotale;
+        return Math.round(prezzoTotale)/100;
     }
 }

@@ -5,9 +5,10 @@ import java.util.Map;
 
 public class Patata {
     private String tipo;
-    private Salsa salsa = null;
+    private Salsa salsa;
     
     public Patata (String t) throws Exception {
+        this.salsa = null;
         t=t.toUpperCase();
         
         for(Map.Entry i: PATATE.entrySet()){
@@ -18,6 +19,7 @@ public class Patata {
     }
     
     public Patata (String t, String salsa)throws Exception {
+        this.salsa = null;
         t=t.toUpperCase();
        
         for(Map.Entry i: PATATE.entrySet()){
@@ -42,7 +44,7 @@ public class Patata {
     public String toString(){
         String x = "Patatine [ "+this.tipo;
         
-        if(!this.salsa.equals(null) && !this.salsa.toString().equals("")){
+        if(this.salsa != null && !this.salsa.toString().equals("")){
             x += ", "+this.salsa;
         }
         

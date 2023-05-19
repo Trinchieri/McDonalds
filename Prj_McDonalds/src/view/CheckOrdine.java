@@ -7,7 +7,7 @@ import javax.swing.DefaultComboBoxModel;
 import model.Ordine;
 
 public class CheckOrdine extends javax.swing.JFrame {
-
+    
     public CheckOrdine(Ordine_frm aThis) {
         initComponents();
         //this.getContentPane().setBackground(new java.awt.Color(59, 173, 68));
@@ -17,6 +17,14 @@ public class CheckOrdine extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 aThis.setVisible(true);
+            }
+        });
+        
+        continua.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Scontrino_frm scontrino = new Scontrino_frm(aThis);
+                scontrino.setVisible(true);
             }
         });
         
@@ -140,8 +148,6 @@ public class CheckOrdine extends javax.swing.JFrame {
 
     private void continuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuaActionPerformed
         this.setVisible(false);
-        Scontrino_frm scontrino = new Scontrino_frm();
-        scontrino.setVisible(true);
     }//GEN-LAST:event_continuaActionPerformed
     
     public static void main(String args[]) {

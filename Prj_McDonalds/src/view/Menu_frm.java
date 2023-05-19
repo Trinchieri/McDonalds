@@ -317,7 +317,6 @@ public class Menu_frm extends javax.swing.JFrame {
         
         if(valuePatate.equals("classiche")) x.setPatatine(valuePatate,valueSalsa);
         else {
-            System.out.println(valuePatate);
             x.setPatatine(valuePatate);
         }
         
@@ -331,7 +330,6 @@ public class Menu_frm extends javax.swing.JFrame {
         if (!valueBibita.equals("") && !valuePanino.equals("") && !valuePatate.equals("")) {
             aggiungiOrdine.setEnabled(true);
         }
-        //else aggiungiOrdine.setEnabled(false);
     }
     
     public static void main(String args[]) {
