@@ -66,4 +66,8 @@ public class GestoreOrdini {
         
         return numeroOrdine;
     }
+    
+    public String getDataOra () {
+        return ordini.get(0).getDataOra();
+    }
 }

@@ -13,9 +13,12 @@ public class Scontrino_frm extends javax.swing.JFrame {
         stampaPrezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
         stampaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(aThis.go)));
         numeroOrdine.setText("NUMERO ORDINE: " + aThis.go.getNumeroOrdine());
+        dataOra.setText(aThis.go.getDataOra());
         
         if (isAsporto)    asporto.setText("ASPORTO: SI");
         else    asporto.setText("ASPORTO: NO");
+        
+        this.getContentPane().setBackground(new java.awt.Color(249, 240, 237));
     }
     
     private String[] caricaOrdini (GestoreOrdini g) {
@@ -33,7 +36,7 @@ public class Scontrino_frm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sottotitolo = new javax.swing.JLabel();
+        titolo = new javax.swing.JLabel();
         labelOrdine = new javax.swing.JLabel();
         asporto = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -43,21 +46,29 @@ public class Scontrino_frm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         stampaOrdini = new javax.swing.JList<>();
         numeroOrdine = new javax.swing.JLabel();
+        dataOra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(242, 238, 238));
 
-        sottotitolo.setText("I'm lovin' it");
+        titolo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/logoScontrino.png"))); // NOI18N
 
+        labelOrdine.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelOrdine.setText("ORDINI:");
 
+        asporto.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         asporto.setText("ASPORTO:");
 
+        stampaPrezzo.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         stampaPrezzo.setText("€");
 
+        labelTotale.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelTotale.setText("Totale");
 
+        fraseFinale.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         fraseFinale.setText("Grazie della vostra visita, arrivederci!");
 
+        stampaOrdini.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         stampaOrdini.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -65,55 +76,63 @@ public class Scontrino_frm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(stampaOrdini);
 
+        numeroOrdine.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         numeroOrdine.setText("NUMERO ORDINE:");
+
+        dataOra.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
+        dataOra.setText("Data e ora");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(42, 42, 42)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(asporto)
+                                        .addComponent(labelOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelTotale)
+                                        .addComponent(numeroOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dataOra, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(stampaPrezzo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(173, 173, 173)
+                            .addComponent(titolo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sottotitolo)
-                .addGap(245, 245, 245))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(fraseFinale))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(asporto)
-                            .addComponent(labelOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelTotale, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
-                                .addComponent(stampaPrezzo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1)
-                            .addComponent(jSeparator1)
-                            .addComponent(numeroOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(fraseFinale)
+                .addGap(129, 129, 129))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(sottotitolo)
-                .addGap(39, 39, 39)
+                .addComponent(titolo)
+                .addGap(38, 38, 38)
                 .addComponent(asporto)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(labelOrdine)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(stampaPrezzo)
-                    .addComponent(labelTotale))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTotale)
+                    .addComponent(stampaPrezzo))
+                .addGap(44, 44, 44)
                 .addComponent(numeroOrdine)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dataOra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(fraseFinale)
                 .addGap(50, 50, 50))
         );
@@ -142,14 +161,15 @@ public class Scontrino_frm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel asporto;
+    private javax.swing.JLabel dataOra;
     private javax.swing.JLabel fraseFinale;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelOrdine;
     private javax.swing.JLabel labelTotale;
     private javax.swing.JLabel numeroOrdine;
-    private javax.swing.JLabel sottotitolo;
     private javax.swing.JList<String> stampaOrdini;
     private javax.swing.JLabel stampaPrezzo;
+    private javax.swing.JLabel titolo;
     // End of variables declaration//GEN-END:variables
 }

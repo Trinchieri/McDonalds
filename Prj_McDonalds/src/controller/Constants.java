@@ -86,6 +86,7 @@ public class Constants {
             put(1,"Giulio Angiani");
             put(2,"Bertino");
             put(3,"Giorgio");
+            put(4,"Lo struzzo di Rutyy");
         }
     };
     

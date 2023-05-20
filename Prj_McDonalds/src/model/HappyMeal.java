@@ -7,7 +7,7 @@ public class HappyMeal extends HappyMenu{
     private String sorpresa, contorno;
     
     public HappyMeal() {        
-        this.sorpresa = SORPRESE.get((int) Math.floor(Math.random()*4));
+        this.sorpresa = SORPRESE.get((int) Math.floor(Math.random()*5));
     }
 
     public String getSorpresa() {
@@ -55,8 +55,7 @@ public class HappyMeal extends HappyMenu{
         return super.toString() + "HappyMeal [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bibita + ", " + this.dessert + ", " + this.sorpresa + " ]";
     } 
 
-    @Override
     public String stampaGUI() {
-       return "- HAPPYMEAL [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bibita + ", " + this.dessert + " ]";
+       return "- HAPPYMEAL [ " + this.panino.getNome() + ", " + this.contorno + ", " + this.bibita + ", " + this.dessert + ", " + this.sorpresa + " ]";
     }
 }

@@ -70,6 +70,7 @@ public class McCafe extends Ordine{
         return x + " ]";
     }
     
+    @Override
     public String stampaGUI () {
         String x = "- CAFE [ ";
         
