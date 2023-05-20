@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 05.20.2023, 10.34.09 McCafe [ caffe americano, donut cioccolato ]
+=======
+05.20.2023, 10.51.04 HappyMeal [ Chickenburger, carotine baby, coca-cola 0, mela, Bertino ]
+>>>>>>> 6aab43dc667217b549e433f3ade7e5034f7ae1b8

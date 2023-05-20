@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.Border;
 import model.Ordine;
 
 public class CheckOrdine extends javax.swing.JFrame {
@@ -14,8 +16,14 @@ public class CheckOrdine extends javax.swing.JFrame {
     
     public CheckOrdine(Ordine_frm aThis) {
         initComponents();
-        //this.getContentPane().setBackground(new java.awt.Color(59, 173, 68));
+        
+        this.getContentPane().setBackground(new java.awt.Color(245, 242, 230));
+        
+        indietro.setBackground(new java.awt.Color(255,240,93));
+        continua.setBackground(new java.awt.Color(255,240,93));
+        
         listaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(aThis.go)));
+        
         
         indietro.addActionListener(new ActionListener(){
             @Override
@@ -37,7 +45,7 @@ public class CheckOrdine extends javax.swing.JFrame {
             }
         });
         
-        prezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
+        prezzo.setText("€ " + aThis.go.calcolaPrezzoTotale());
     }
 
     private String[] caricaOrdini (GestoreOrdini g) {
@@ -76,10 +84,14 @@ public class CheckOrdine extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
-        titolo.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 31)); // NOI18N
+        titolo.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        titolo.setForeground(new java.awt.Color(219, 16, 32));
         titolo.setText("Check Ordine");
 
+        continua.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         continua.setText("CONTINUA");
         continua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +99,7 @@ public class CheckOrdine extends javax.swing.JFrame {
             }
         });
 
+        indietro.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         indietro.setText("TORNA INDIETRO");
         indietro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +107,10 @@ public class CheckOrdine extends javax.swing.JFrame {
             }
         });
 
+        listaOrdini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(39, 116, 45), 4));
+        listaOrdini.setFont(new java.awt.Font("Leelawadee UI", 1, 15)); // NOI18N
+        listaOrdini.setForeground(new java.awt.Color(51, 51, 51));
+        listaOrdini.setAutoscrolls(false);
         stampaOrdine.setViewportView(listaOrdini);
 
         labelPrezzo.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
@@ -114,32 +131,29 @@ public class CheckOrdine extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(indietro, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(103, 103, 103)
+                .addComponent(indietro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(continua, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGap(114, 114, 114))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titolo)
-                .addGap(148, 148, 148))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(asporto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(stampaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(labelPrezzo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(prezzo)
-                                    .addGap(17, 17, 17))))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelPrezzo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(prezzo))))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stampaOrdine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addComponent(titolo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,16 +161,16 @@ public class CheckOrdine extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(titolo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(stampaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(stampaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPrezzo)
                     .addComponent(prezzo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(asporto)
-                .addGap(37, 37, 37)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(indietro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(continua, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
