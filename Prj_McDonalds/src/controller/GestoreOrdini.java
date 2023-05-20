@@ -6,11 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import model.Ordine;
-import model.Panino;
 
 public class GestoreOrdini {
     private boolean isAsporto;
@@ -47,7 +45,7 @@ public class GestoreOrdini {
             prezzoTotale += i.calcolaPrezzo();
         }
         
-        return prezzoTotale;
+        return Math.round(prezzoTotale * 100)/100;
     }
 
     public boolean isIsAsporto() {

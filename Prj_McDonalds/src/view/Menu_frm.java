@@ -43,6 +43,9 @@ public class Menu_frm extends javax.swing.JFrame {
         sceltaSalse.setModel(new DefaultComboBoxModel<>(caricaSalse()));
         sceltaBibite.setModel(new DefaultComboBoxModel<>(caricaBibite()));
         sceltaDesserts.setModel(new DefaultComboBoxModel<>(caricaDessert()));
+        
+        //css
+        this.getContentPane().setBackground(new java.awt.Color(245,242,230));
     }
 
     
@@ -64,14 +67,15 @@ public class Menu_frm extends javax.swing.JFrame {
         sceltaDesserts = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        titolo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        titolo.setText("MENU");
+        titolo.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        titolo.setText("Menu");
 
-        labelPanino.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelPanino.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelPanino.setText("PANINO:");
 
-        aggiungiOrdine.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 18)); // NOI18N
+        aggiungiOrdine.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         aggiungiOrdine.setText("AGGIUNGI ALL'ORDINE");
         aggiungiOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +83,7 @@ public class Menu_frm extends javax.swing.JFrame {
             }
         });
 
-        sceltaPanini.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaPanini.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaPanini.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sceltaPanini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,19 +91,19 @@ public class Menu_frm extends javax.swing.JFrame {
             }
         });
 
-        labelPatate.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelPatate.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelPatate.setText("PATATE:");
 
-        labelSalsa.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelSalsa.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelSalsa.setText("SALSA:");
 
-        labelBibita.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelBibita.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelBibita.setText("BIBITA:");
 
-        labelDessert.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelDessert.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelDessert.setText("DESSERT:");
 
-        sceltaPatate.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaPatate.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaPatate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sceltaPatate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +111,7 @@ public class Menu_frm extends javax.swing.JFrame {
             }
         });
 
-        sceltaSalse.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaSalse.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaSalse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sceltaSalse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +119,7 @@ public class Menu_frm extends javax.swing.JFrame {
             }
         });
 
-        sceltaBibite.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaBibite.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaBibite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sceltaBibite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +127,7 @@ public class Menu_frm extends javax.swing.JFrame {
             }
         });
 
-        sceltaDesserts.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaDesserts.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaDesserts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sceltaDesserts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,45 +140,45 @@ public class Menu_frm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(labelSalsa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelBibita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelPatate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelPanino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelDessert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sceltaDesserts, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(sceltaBibite, javax.swing.GroupLayout.Alignment.TRAILING, 0, 138, Short.MAX_VALUE)
-                        .addComponent(sceltaSalse, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sceltaPatate, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sceltaPanini, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(68, 68, 68))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(titolo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(labelSalsa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelBibita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPatate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPanino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelDessert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sceltaPatate, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sceltaPanini, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sceltaSalse, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sceltaBibite, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sceltaDesserts, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(aggiungiOrdine)))
+                .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(aggiungiOrdine)
-                .addGap(124, 124, 124))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(titolo)
+                .addGap(187, 187, 187))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(24, 24, 24)
                 .addComponent(titolo)
-                .addGap(38, 38, 38)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPanino)
                     .addComponent(sceltaPanini, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPatate)
-                    .addComponent(sceltaPatate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(sceltaPatate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPatate))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSalsa)
                     .addComponent(sceltaSalse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,9 +190,9 @@ public class Menu_frm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelDessert)
                     .addComponent(sceltaDesserts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(aggiungiOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(49, 49, 49)
+                .addComponent(aggiungiOrdine)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();

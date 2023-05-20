@@ -23,6 +23,7 @@ public class Ordine_frm extends javax.swing.JFrame {
         cafe = new javax.swing.JButton();
         happymeal = new javax.swing.JButton();
         checkOrdine = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -36,7 +37,9 @@ public class Ordine_frm extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(894, 400));
+        setMaximumSize(new java.awt.Dimension(910, 400));
+        setPreferredSize(new java.awt.Dimension(910, 410));
+        setResizable(false);
 
         menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/mcmenu.png"))); // NOI18N
         menu.setPreferredSize(new java.awt.Dimension(225, 150));
@@ -61,13 +64,16 @@ public class Ordine_frm extends javax.swing.JFrame {
             }
         });
 
-        checkOrdine.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 18)); // NOI18N
+        checkOrdine.setFont(new java.awt.Font("Arial Nova", 0, 18)); // NOI18N
         checkOrdine.setText("CHECK ORDINE");
         checkOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkOrdineActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 40)); // NOI18N
+        jLabel1.setText("McDonald's");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,28 +82,33 @@ public class Ordine_frm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(60, 60, 60)
                         .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
+                        .addGap(49, 49, 49)
                         .addComponent(cafe, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
+                        .addGap(50, 50, 50)
                         .addComponent(happymeal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(362, 362, 362)
-                        .addComponent(checkOrdine)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                        .addGap(315, 315, 315)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(361, 361, 361)
+                        .addComponent(checkOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(happymeal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cafe, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(checkOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                    .addComponent(cafe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(happymeal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(checkOrdine)
+                .addGap(69, 69, 69))
         );
 
         pack();
@@ -174,6 +185,7 @@ public class Ordine_frm extends javax.swing.JFrame {
     private javax.swing.JButton cafe;
     private javax.swing.JButton checkOrdine;
     private javax.swing.JButton happymeal;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menu;
     // End of variables declaration//GEN-END:variables

@@ -34,6 +34,9 @@ public class McCafe_frm extends javax.swing.JFrame {
                 
             }
         });
+        
+        //css
+        this.getContentPane().setBackground(new java.awt.Color(245,242,230));
     }
     
     @SuppressWarnings("unchecked")
@@ -48,13 +51,14 @@ public class McCafe_frm extends javax.swing.JFrame {
         sceltaPaste = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         titolo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         titolo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/mccafeLogo.png"))); // NOI18N
         titolo.setMaximumSize(new java.awt.Dimension(3840, 2160));
         titolo.setMinimumSize(new java.awt.Dimension(3840, 2160));
 
-        aggiungiOrdine.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 18)); // NOI18N
+        aggiungiOrdine.setFont(new java.awt.Font("Arial Nova", 0, 18)); // NOI18N
         aggiungiOrdine.setText("AGGIUNGI ALL'ORDINE");
         aggiungiOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,22 +66,24 @@ public class McCafe_frm extends javax.swing.JFrame {
             }
         });
 
-        labelBevanda.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelBevanda.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelBevanda.setText("BEVANDA:");
 
-        labelPasta.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelPasta.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         labelPasta.setText("PASTA:");
 
-        sceltaBevande.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaBevande.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaBevande.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaBevande.setLightWeightPopupEnabled(false);
         sceltaBevande.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sceltaBevandeActionPerformed(evt);
             }
         });
 
-        sceltaPaste.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        sceltaPaste.setFont(new java.awt.Font("Arial Nova", 0, 16)); // NOI18N
         sceltaPaste.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sceltaPaste.setLightWeightPopupEnabled(false);
         sceltaPaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sceltaPasteActionPerformed(evt);
@@ -90,40 +96,39 @@ public class McCafe_frm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(labelPasta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelBevanda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(aggiungiOrdine)
-                        .addContainerGap(56, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(labelPasta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelBevanda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sceltaBevande, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sceltaPaste, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34))))
+                    .addComponent(sceltaBevande, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sceltaPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(156, 156, 156)
                 .addComponent(titolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(aggiungiOrdine)
+                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(22, 22, 22)
                 .addComponent(titolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelBevanda)
-                    .addComponent(sceltaBevande, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                    .addComponent(sceltaBevande, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelBevanda))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPasta)
-                    .addComponent(sceltaPaste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(aggiungiOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                    .addComponent(sceltaPaste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPasta))
+                .addGap(57, 57, 57)
+                .addComponent(aggiungiOrdine)
+                .addGap(53, 53, 53))
         );
 
         pack();
