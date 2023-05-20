@@ -30,7 +30,11 @@
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                      <Component id="fraseFinale" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="asporto" min="-2" max="-2" attributes="0"/>
@@ -42,11 +46,8 @@
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="numeroOrdine" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                      <Component id="fraseFinale" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="42" max="32767" attributes="0"/>
@@ -67,13 +68,15 @@
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelTotale" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="stampaPrezzo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTotale" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <Component id="numeroOrdine" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="fraseFinale" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,5 +139,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="numeroOrdine">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NUMERO ORDINE:"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

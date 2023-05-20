@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import model.Ordine;
 
 public class GestoreOrdini {
+    private int numeroOrdine;
     private ArrayList<Ordine> ordini = new ArrayList<>();
     
     public GestoreOrdini () throws FileNotFoundException, IOException, Exception {

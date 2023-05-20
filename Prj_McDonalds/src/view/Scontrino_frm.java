@@ -6,11 +6,15 @@ import model.Ordine;
 
 public class Scontrino_frm extends javax.swing.JFrame {
 
-    public Scontrino_frm(Ordine_frm aThis) {
+    public Scontrino_frm(Ordine_frm aThis, boolean isAsporto) {
         initComponents();
         
         stampaPrezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
         stampaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(aThis.go)));
+        
+        
+        if (isAsporto)    asporto.setText("ASPORTO: SI");
+        else    asporto.setText("ASPORTO: NO");
     }
     
     private String[] caricaOrdini (GestoreOrdini g) {
@@ -37,6 +41,7 @@ public class Scontrino_frm extends javax.swing.JFrame {
         fraseFinale = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         stampaOrdini = new javax.swing.JList<>();
+        numeroOrdine = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +64,8 @@ public class Scontrino_frm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(stampaOrdini);
 
+        numeroOrdine.setText("NUMERO ORDINE:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,6 +77,9 @@ public class Scontrino_frm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(fraseFinale))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(asporto)
@@ -79,10 +89,8 @@ public class Scontrino_frm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
                                 .addComponent(stampaPrezzo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1)
-                            .addComponent(jSeparator1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(fraseFinale)))
+                            .addComponent(jSeparator1)
+                            .addComponent(numeroOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,12 +107,14 @@ public class Scontrino_frm extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTotale)
-                    .addComponent(stampaPrezzo))
-                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(stampaPrezzo)
+                    .addComponent(labelTotale))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(numeroOrdine)
+                .addGap(29, 29, 29)
                 .addComponent(fraseFinale)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -136,6 +146,7 @@ public class Scontrino_frm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelOrdine;
     private javax.swing.JLabel labelTotale;
+    private javax.swing.JLabel numeroOrdine;
     private javax.swing.JLabel sottotitolo;
     private javax.swing.JList<String> stampaOrdini;
     private javax.swing.JLabel stampaPrezzo;

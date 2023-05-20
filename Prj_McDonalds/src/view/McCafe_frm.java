@@ -42,7 +42,6 @@ public class McCafe_frm extends javax.swing.JFrame {
 
         titolo = new javax.swing.JLabel();
         aggiungiOrdine = new javax.swing.JButton();
-        asporto = new javax.swing.JCheckBox();
         labelBevanda = new javax.swing.JLabel();
         labelPasta = new javax.swing.JLabel();
         sceltaBevande = new javax.swing.JComboBox<>();
@@ -56,13 +55,6 @@ public class McCafe_frm extends javax.swing.JFrame {
         aggiungiOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aggiungiOrdineActionPerformed(evt);
-            }
-        });
-
-        asporto.setText("Asporto");
-        asporto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asportoActionPerformed(evt);
             }
         });
 
@@ -92,23 +84,21 @@ public class McCafe_frm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(asporto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(labelPasta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelBevanda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(sceltaBevande, 0, 112, Short.MAX_VALUE)
-                                    .addComponent(sceltaPaste, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(aggiungiOrdine))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(labelPasta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelBevanda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sceltaBevande, 0, 112, Short.MAX_VALUE)
+                            .addComponent(sceltaPaste, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(193, 193, 193)
                         .addComponent(titolo)))
                 .addGap(90, 90, 90))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(aggiungiOrdine)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +113,9 @@ public class McCafe_frm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPasta)
                     .addComponent(sceltaPaste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(asporto)
-                .addGap(26, 26, 26)
+                .addGap(44, 44, 44)
                 .addComponent(aggiungiOrdine)
-                .addGap(59, 59, 59))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,12 +133,6 @@ public class McCafe_frm extends javax.swing.JFrame {
         return x;
     }
     
-    private void asportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asportoActionPerformed
-        if (asporto.isSelected()) {
-            this.isAsporto = true;
-        }
-    }//GEN-LAST:event_asportoActionPerformed
-
     private void sceltaBevandeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceltaBevandeActionPerformed
         //get selected value from the combobox
         if (sceltaBevande.getSelectedItem().toString().equals("-")) valueBevanda = "";
@@ -203,7 +185,6 @@ public class McCafe_frm extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungiOrdine;
-    private javax.swing.JCheckBox asporto;
     private javax.swing.JLabel labelBevanda;
     private javax.swing.JLabel labelPasta;
     private javax.swing.JComboBox<String> sceltaBevande;
