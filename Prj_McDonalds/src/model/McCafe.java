@@ -8,8 +8,8 @@ import java.util.Map;
 public class McCafe extends Ordine{
     private String bevanda, pasta;
 
-    public McCafe(boolean asporto) {
-        super(asporto);
+    public McCafe() {
+        
     }
 
     public String getBevanda() {
@@ -20,40 +20,47 @@ public class McCafe extends Ordine{
         return pasta;
     }
 
-    public void setBevanda(String bevanda) {        
+    public void setBevanda(String bevanda) throws Exception {   
         if("".equals(bevanda)){
             this.bevanda = bevanda;
         }
         else{
+            boolean modified = false;
             bevanda = bevanda.toUpperCase();
             
             for(Map.Entry i: BEVANDE.entrySet()){
                 if(bevanda.equals(i.getKey())){
                     this.bevanda = (String) i.getKey();
                     this.bevanda = this.bevanda.toLowerCase();
+                    modified = true;
                 }
             }
+            
+            if (!modified)  throw new Exception ("Bevanda non valida");
         }
     }
 
-    public void setPasta(String pasta) {
+    public void setPasta(String pasta) throws Exception {
         if(pasta == ""){
             this.pasta = pasta;
         }
         else {
+            boolean modified = false;
             pasta = pasta.toUpperCase();
             
             for(Map.Entry i: PASTE.entrySet()){
                 if(pasta.equals(i.getKey())){
                     this.pasta = ((String) i.getKey()).toLowerCase();
+                    modified = true;
                 }
             }
+            
+            if (!modified)  throw new Exception ("Pasta non valida");
         }        
     }
     
     @Override
     public String toString () {
-        
         String x = super.toString() + " McCafe [ ";
         
         if (!bevanda.equals("")) x += this.bevanda;

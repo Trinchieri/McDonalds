@@ -10,12 +10,10 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import model.McCafe;
 
-public class McCafe_frm extends javax.swing.JFrame {
-        
+public class McCafe_frm extends javax.swing.JFrame {    
     String valueBevanda = "", valuePasta = "";
-    boolean isAsporto;
     
-    public McCafe_frm(Ordine_frm aThis) {
+    public McCafe_frm(Ordine_frm aThis) throws IOException, Exception {
         initComponents();
         
         aggiungiOrdine.setEnabled(false);
@@ -26,12 +24,14 @@ public class McCafe_frm extends javax.swing.JFrame {
         aggiungiOrdine.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 try {
                     aThis.go.addOrdine(creaOrdine());
-                    aThis.setVisible(true);
-                } catch (IOException ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                aThis.setVisible(true);
+                
             }
         });
     }
@@ -125,8 +125,8 @@ public class McCafe_frm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_aggiungiOrdineActionPerformed
     
-    private McCafe creaOrdine(){        
-        McCafe x = new McCafe(isAsporto);
+    private McCafe creaOrdine() throws Exception{        
+        McCafe x = new McCafe();
         
         x.setBevanda(valueBevanda);
         x.setPasta(valuePasta);

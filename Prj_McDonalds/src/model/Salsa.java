@@ -17,13 +17,17 @@ public class Salsa {
     
     public Salsa (String salsa) throws Exception {
         if (!salsa.equals("")) {
+            boolean modified = false;
             salsa=salsa.toUpperCase();
             
             for(Map.Entry i: SALSE.entrySet()){
                 if(i.getKey().equals(salsa)){
                     this.tipiSalse.replace((String) i.getValue(), true);
+                    modified = true;
                 }
             }
+            
+             if (!modified) throw new Exception ("Salsa non valida");
         }  
     }
     

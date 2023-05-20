@@ -17,7 +17,6 @@ import model.McMenu;
 import model.Panino;
 
 public class Menu_frm extends javax.swing.JFrame {
-    private boolean isAsporto;
     String valuePanino = "", valuePatate = "", valueSalsa = "", valueBibita = "", valueDessert = "";
     GestorePanini gp = new GestorePanini();
     
@@ -291,7 +290,7 @@ public class Menu_frm extends javax.swing.JFrame {
     }
     
     private McMenu creaOrdine() throws Exception{
-        McMenu x = new McMenu(isAsporto);
+        McMenu x = new McMenu();
         x.setPanino(valuePanino);
         
         if(valuePatate.equals("classiche")) x.setPatatine(valuePatate,valueSalsa);

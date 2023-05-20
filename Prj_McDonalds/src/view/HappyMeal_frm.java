@@ -12,7 +12,6 @@ import model.HappyMeal;
 
 public class HappyMeal_frm extends javax.swing.JFrame {
     private String valuePanino = "", valueContorno = "", valueBibita = "", valueDessert = "";
-    private boolean isAsporto;
     
     public HappyMeal_frm(Ordine_frm aThis) {
         initComponents();
@@ -29,6 +28,8 @@ public class HappyMeal_frm extends javax.swing.JFrame {
                     aThis.setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(McCafe_frm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    Logger.getLogger(HappyMeal_frm.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -169,8 +170,8 @@ public class HappyMeal_frm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private HappyMeal creaOrdine(){        
-        HappyMeal x = new HappyMeal(isAsporto);
+    private HappyMeal creaOrdine() throws Exception{        
+        HappyMeal x = new HappyMeal();
         
         x.setPanino(valuePanino);
         x.setContorno(valueContorno);

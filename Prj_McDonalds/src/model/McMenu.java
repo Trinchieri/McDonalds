@@ -2,32 +2,39 @@ package model;
 
 import controller.Constants;
 import static controller.Constants.DESSERTS;
+import controller.GestorePanini;
 import java.util.Map;
 
 public class McMenu extends HappyMenu{
-    
     private Patata patatine;
     
-    public McMenu(boolean asporto) throws Exception {
-        super(asporto);
+    public McMenu() throws Exception {
+    }
+    
+    public void setPanino(String nomePanino) {
+        this.panino = GestorePanini.getPanino(nomePanino);
     }
     
     public String getDessert() {
         return dessert;
     }
     
-    public void setDessert(String dessert) {
+    public void setDessert(String dessert) throws Exception {
         if(dessert == ""){
             this.dessert = "";
         }
         else{
+            boolean modified = false;
             dessert = dessert.toUpperCase();
             
             for(Map.Entry i: DESSERTS.entrySet()){
                if(dessert.equals(i.getKey())){
                    this.dessert = ((String) i.getKey()).toLowerCase();
+                   modified = true;
                }
             }
+            
+            if (!modified)   throw new Exception ("Dessert non valido");
         }
     }
     

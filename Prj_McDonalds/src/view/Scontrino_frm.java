@@ -1,17 +1,18 @@
 package view;
 
 import controller.GestoreOrdini;
+import java.io.IOException;
 import javax.swing.DefaultComboBoxModel;
 import model.Ordine;
 
 public class Scontrino_frm extends javax.swing.JFrame {
 
-    public Scontrino_frm(Ordine_frm aThis, boolean isAsporto) {
+    public Scontrino_frm(Ordine_frm aThis, boolean isAsporto) throws IOException {
         initComponents();
         
         stampaPrezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
         stampaOrdini.setModel(new DefaultComboBoxModel<>(caricaOrdini(aThis.go)));
-        
+        numeroOrdine.setText("NUMERO ORDINE: " + aThis.go.getNumeroOrdine());
         
         if (isAsporto)    asporto.setText("ASPORTO: SI");
         else    asporto.setText("ASPORTO: NO");

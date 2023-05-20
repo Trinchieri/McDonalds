@@ -3,6 +3,9 @@ package view;
 import controller.GestoreOrdini;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import model.Ordine;
 
@@ -24,13 +27,18 @@ public class CheckOrdine extends javax.swing.JFrame {
         continua.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scontrino_frm scontrino = new Scontrino_frm(aThis, isAsporto);
-                scontrino.setVisible(true);
+                Scontrino_frm scontrino;
+                try {
+                    scontrino = new Scontrino_frm(aThis, isAsporto);
+                    scontrino.setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(CheckOrdine.class.getName()).log(Level.SEVERE, null, ex);
+                } 
             }
         });
         
         prezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
-        
+        System.out.println(aThis.go.calcolaPrezzoTotale());
     }
 
     private String[] caricaOrdini (GestoreOrdini g) {

@@ -31,12 +31,12 @@ public class Main {
             }
             
             if (risposta=='S'){
-                nuovoOrdine(d);
-                
+                nuovoOrdine(d); 
             }
             
         } while (risposta!='N');
         
+        indicaAsporto();
         
         //STAMPA DI TUTTI GLI ORDINI
         System.out.println("\nSTAMPA ORDINI CORRENTI:");
@@ -48,7 +48,7 @@ public class Main {
         System.out.println("\nPREZZO TOTALE: " + d.calcolaPrezzoTotale());
     }
     
-    private static void nuovoOrdine (GestoreOrdini d) throws IOException, Exception {
+    private static void indicaAsporto (){
         Scanner scan = new Scanner(System.in);  //input da tastiera
         
         //ASPORTO
@@ -62,7 +62,10 @@ public class Main {
         }
         
         if (scan.nextLine().equals("SI")) asporto = true;
-        
+    }
+    
+    private static void nuovoOrdine (GestoreOrdini d) throws IOException, Exception {
+        Scanner scan = new Scanner(System.in);  //input da tastiera
         
         //SCELTA MCMENU / HAPPYMEAL / MCCAFE
         System.out.println("\nMCMENU / HAPPYMEAL / MCCAFE?");
@@ -70,7 +73,7 @@ public class Main {
         
         switch (ordine) {
             case "MCCAFE": {
-                McCafe ordine1 = new McCafe(asporto);
+                McCafe ordine1 = new McCafe();
                 
                 System.out.println("\nBEVANDA:");
                 ordine1.setBevanda(scan.nextLine());
@@ -113,11 +116,12 @@ public class Main {
                 } while (risposta!="NO");
                 
                 d.addOrdine(ordine1);
+
                 break;
             }
             
             case "HAPPYMEAL": {
-                HappyMeal ordine1 = new HappyMeal(asporto);
+                HappyMeal ordine1 = new HappyMeal();
                 
                 System.out.println("\nPANINO: MCTOAST / HAMBURGER / CHICKENBURGER");
                 ordine1.setPanino(scan.nextLine());
@@ -182,7 +186,7 @@ public class Main {
             }
             
             case "MCMENU": {
-                McMenu ordine1 = new McMenu(asporto);
+                McMenu ordine1 = new McMenu();
                 
                 System.out.println("\nPANINO:");
                 ordine1.setPanino(scan.nextLine());
