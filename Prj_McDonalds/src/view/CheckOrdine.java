@@ -38,7 +38,6 @@ public class CheckOrdine extends javax.swing.JFrame {
         });
         
         prezzo.setText("€" + aThis.go.calcolaPrezzoTotale());
-        System.out.println(aThis.go.calcolaPrezzoTotale());
     }
 
     private String[] caricaOrdini (GestoreOrdini g) {

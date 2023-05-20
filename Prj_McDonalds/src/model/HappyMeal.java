@@ -16,7 +16,7 @@ public class HappyMeal extends HappyMenu{
     
     public void setPanino (String nomePanino) throws Exception{
         nomePanino = nomePanino.toUpperCase();
-            
+        
         if (nomePanino.equals("MCTOAST") || nomePanino.equals("HAMBURGER") || nomePanino.equals("CHICKENBURGER")) {
             this.panino = GestorePanini.getPanino(nomePanino);
         }

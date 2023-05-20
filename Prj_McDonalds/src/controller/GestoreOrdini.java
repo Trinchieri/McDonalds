@@ -42,11 +42,12 @@ public class GestoreOrdini {
     public double calcolaPrezzoTotale () {
         double prezzoTotale = 0;
         
+        
         for (Ordine i: ordini) {
             prezzoTotale += i.calcolaPrezzo();
         }
         
-        return Math.round(prezzoTotale)/100;
+        return prezzoTotale;
     }
 
     public boolean isIsAsporto() {
