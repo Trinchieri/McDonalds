@@ -6,10 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import model.Ordine;
 
 public class CheckOrdine extends javax.swing.JFrame {
