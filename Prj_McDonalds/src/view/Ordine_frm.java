@@ -12,6 +12,7 @@ public class Ordine_frm extends javax.swing.JFrame {
     public Ordine_frm() throws Exception {
         initComponents();
         this.getContentPane().setBackground(new java.awt.Color(245, 242, 230));
+        checkOrdine.setBackground(new java.awt.Color (255,240,93));
     }
 
     @SuppressWarnings("unchecked")
@@ -37,8 +38,6 @@ public class Ordine_frm extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(910, 400));
-        setPreferredSize(new java.awt.Dimension(910, 410));
         setResizable(false);
 
         menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/mcmenu.png"))); // NOI18N
@@ -64,7 +63,7 @@ public class Ordine_frm extends javax.swing.JFrame {
             }
         });
 
-        checkOrdine.setFont(new java.awt.Font("Arial Nova", 0, 18)); // NOI18N
+        checkOrdine.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         checkOrdine.setText("CHECK ORDINE");
         checkOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +98,7 @@ public class Ordine_frm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
