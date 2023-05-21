@@ -66,3 +66,7 @@ Il file è associato a GestioneOrdini. All'interno di esso vengono salvati i var
 
 #### numero.txt
 Il file è associato a GestioneOrdini. All'interno di esso viene salvato il numero dell'ordine corrente, che verrà letto ed incrementato per l'ordine successivo, per poi essere aggiornato.
+
+### Presentazione del Progetto
+Presentazione: https://docs.google.com/presentation/d/1EiqaQnWD0ioTlYQEL3kL4Gmm-r6TlwH7cEPfDy-eyiQ/edit?usp=sharing
+UML: https://drive.google.com/file/d/1NTcYlkT_y_OR8HV-5PfvWNzFcz80xG1m/view?usp=sharing
